@@ -37,7 +37,7 @@ import { useTranslations } from "next-intl";
 //     },
 // ];
 
-import pic1 from "../../../public/history/1.jpg";
+import pic1 from "../../../public/history/1..jpg";
 import pic2 from "../../../public/history/2.jpg";
 import pic3 from "../../../public/history/3.jpg";
 import pic4 from "../../../public/history/4.jpg";
@@ -51,26 +51,6 @@ import pic11 from "../../../public/history/11.jpg";
 import pic12 from "../../../public/history/12.jpg";
 import pic13 from "../../../public/history/13.jpg";
 import pic14 from "../../../public/history/14.jpg";
-import pic15 from "../../../public/history/15.jpg";
-import pic16 from "../../../public/history/16.jpg";
-import pic17 from "../../../public/history/17.jpg";
-import pic18 from "../../../public/history/18.jpg";
-import pic19 from "../../../public/history/19.jpg";
-import pic20 from "../../../public/history/20.jpg";
-import pic21 from "../../../public/history/21.jpg";
-import pic22 from "../../../public/history/22.jpg";
-import pic23 from "../../../public/history/23.jpg";
-import pic24 from "../../../public/history/24.jpg";
-import pic25 from "../../../public/history/25.jpg";
-import pic26 from "../../../public/history/26.jpg";
-import pic27 from "../../../public/history/27.jpg";
-import pic28 from "../../../public/history/28.jpg";
-import pic29 from "../../../public/history/29.jpg";
-import pic30 from "../../../public/history/30.jpg";
-import pic31 from "../../../public/history/31.jpg";
-import pic32 from "../../../public/history/32.jpg";
-import pic33 from "../../../public/history/33.jpg";
-import pic34 from "../../../public/history/34.jpg";
 
 const images = [
   { id: 1, image: pic1 },
@@ -87,26 +67,6 @@ const images = [
   { id: 12, image: pic12 },
   { id: 13, image: pic13 },
   { id: 14, image: pic14 },
-  { id: 15, image: pic15 },
-  { id: 16, image: pic16 },
-  { id: 17, image: pic17 },
-  { id: 18, image: pic18 },
-  { id: 19, image: pic19 },
-  { id: 20, image: pic20 },
-  { id: 21, image: pic21 },
-  { id: 22, image: pic22 },
-  { id: 23, image: pic23 },
-  { id: 24, image: pic24 },
-  { id: 25, image: pic25 },
-  { id: 26, image: pic26 },
-  { id: 27, image: pic27 },
-  { id: 28, image: pic28 },
-  { id: 29, image: pic29 },
-  { id: 30, image: pic30 },
-  { id: 31, image: pic31 },
-  { id: 32, image: pic32 },
-  { id: 33, image: pic33 },
-  { id: 34, image: pic34 },
 ];
 
 const SplashPopUp = ({ handleClose }: { handleClose: () => void }) => {

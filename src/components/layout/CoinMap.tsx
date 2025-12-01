@@ -113,7 +113,7 @@ export default function CoinMap({ destination }: CoinMapProps) {
     volcanoEl.querySelector('img')!.style.cssText = `
       height: 100%;
       max-width: 120px;
-      filter: brightness(2.5) drop-shadow(0 0 10px white);
+      filter: drop-shadow(0 0 10px white);
       object-fit: contain;
     `;
 

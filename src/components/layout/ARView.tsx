@@ -74,11 +74,11 @@ const Avatar = React.forwardRef((props: AvatarProps, forwardedRef: any) => {
       scale={`${userScale} ${userScale} ${userScale}`}
     >
       <AEntity
-        light="type: ambient; color: #ffffff; intensity: 1.5"
+        light="type: ambient; color: #ffffff; intensity: 0.5"
       />
       <AEntity
-        light="type: directional; color: #ffffff; intensity: 6"
-        position="0 2 2"
+        light="type: directional; color: #ffffff; intensity: 4"
+        position="0 0 3"
       />
       <AEntity
         gltf-model="url(/models/avatar5.glb)"

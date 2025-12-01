@@ -84,7 +84,7 @@ const Intro = ({ handleClose }: { handleClose: () => void }) => {
                         <img
                             src="/intro.gif"
                             alt="Intro Gif"
-                            className="w-[250px] rounded-lg"
+                            className="w-[150px] rounded-lg"
                         />
                     </div>
                 </>

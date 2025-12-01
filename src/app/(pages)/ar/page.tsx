@@ -87,14 +87,14 @@ const Page = () => {
     setPoints(0); // Reset points for the new POI
   }, [user?.POIsCompleted]);
 
-  // Auto-complete POI3 (index 2) - no game required
+  // Auto-complete POIs that don't require the game (indices 2, 5, 8, 11 which are POIs 3, 6, 9, 12)
   useEffect(() => {
-    if (user && user.POIsCompleted === 2 && !navigationInProgress.current) {
-      // POI3 requires 0 points, so auto-complete immediately
+    if (!user || navigationInProgress.current) return;
+
+    const quizOnlyPOIs = [2, 5, 8, 11];
+    if (quizOnlyPOIs.includes(user.POIsCompleted)) {
       navigationInProgress.current = true;
-      setTimeout(() => {
-        router.push(`/volcano/${user.POIsCompleted + 1}`);
-      }, 1000); // Small delay to show the POI briefly
+      router.push(`/volcano/${user.POIsCompleted + 1}`);
     }
   }, [user?.POIsCompleted, router]);
 
@@ -335,7 +335,7 @@ const Page = () => {
     return {
       id: safeId,
       position: { x: Math.cos(angle) * radius, y: height, z: Math.sin(angle) },
-      scale: Math.random() * 0.005 + 0.03,
+      scale: Math.random() * 0.005 + 0.5,
       rotation: {
         x: Math.random() * Math.PI,
         y: Math.random() * Math.PI,
@@ -397,23 +397,23 @@ const Page = () => {
     setPoints((prev) => {
       // Calculate points based on current rock count and POI
       let pointsPerRock = 1;
-      const currentRockCount = rocksCollectedInCurrentPOI + 1; // +1 because we increment after this
+      const currentRockCount = rocksCollectedInCurrentPOI + 1;
 
-      if (POICompleted === 0) pointsPerRock = 3; // POI1: 3 points per rock
-      else if (POICompleted === 1) pointsPerRock = 4; // POI2: 4 points per rock
-      else if (POICompleted === 3) pointsPerRock = 5; // POI4: 5 points per rock
-      else if (POICompleted === 4) pointsPerRock = 3; // POI5: 3 points per rock
-      else if (POICompleted === 6) {
-        // POI7: 6 rocks × 6 points + 1 rock × 9 points
+      if (POICompleted === 0) {
+        pointsPerRock = 3;
+      } else if (POICompleted === 1) {
+        pointsPerRock = 4;
+      } else if (POICompleted === 3) {
+        pointsPerRock = 5;
+      } else if (POICompleted === 4) {
+        pointsPerRock = 3;
+      } else if (POICompleted === 6) {
         pointsPerRock = currentRockCount <= 6 ? 6 : 9;
       } else if (POICompleted === 7) {
-        // POI8: 6 rocks × 7 points + 1 rock × 8 points
         pointsPerRock = currentRockCount <= 6 ? 7 : 8;
       } else if (POICompleted === 9) {
-        // POI10: 6 rocks × 8 points + 1 rock × 7 points
         pointsPerRock = currentRockCount <= 6 ? 8 : 7;
       } else if (POICompleted === 10) {
-        // POI11: 3 rocks × 3 points + 2 rocks × 4 points
         pointsPerRock = currentRockCount <= 3 ? 3 : 4;
       }
 
