@@ -1,0 +1,454 @@
+{
+  "Login": {
+    "button1": "INICIAR SESIÓN",
+    "button2": "REGISTRARSE",
+    "enter_credentials": "Por favor, introduce correo electrónico y contraseña",
+    "email_not_verified": "Correo electrónico no verificado. Por favor, verifica tu correo primero.",
+    "login_success": "¡Inicio de sesión exitoso!",
+    "login_failed": "Error de inicio de sesión. Correo electrónico o contraseña incorrectos.",
+    "loading": "Iniciando sesión...",
+    "or": "O",
+    "continue_google": "Continuar con Google",
+    "continue_microsoft": "Continuar con Microsoft"
+  },
+  "Register": {
+    "field1": "Nombre",
+    "field2": "Apellidos",
+    "field3": "Correo electrónico",
+    "field4": "Contraseña",
+    "field5": "Número de teléfono móvil",
+    "field6": "Lugar de procedencia",
+    "check1": "Acepto recibir el boletín y promociones de Ajuntament de Canyelles",
+    "check21": "He leído y acepto la",
+    "check22": "Política de Privacidad",
+    "button1": "REGISTRARSE",
+    "processing": "Procesando",
+    "button2": "YA ESTOY REGISTRADO",
+    "enterPassword": "Por favor ingrese una nueva contraseña",
+    "enterEmail": "Por favor ingrese su correo electrónico",
+    "resetSuccess": "¡Contraseña restablecida con éxito!",
+    "resetFailed": "No se pudo restablecer la contraseña",
+    "somethingWrong": "Algo salió mal",
+    "resetting": "Restableciendo...",
+    "resetButton": "Restablecer contraseña",
+    "placeholder": "Ingrese nueva contraseña",
+    "sending": "Enviando...",
+    "sendLink": "Enviar enlace de restablecimiento",
+    "emailSent": "¡Correo de restablecimiento de contraseña enviado!",
+    "sendFailed": "No se pudo enviar el correo de restablecimiento",
+    "invalidEmail": "Por favor, introduce una dirección de correo válida.",
+    "invalidPhone": "El número de teléfono solo puede contener '+', números y espacios.",
+    "termsRequired": "Debes aceptar los Términos y Condiciones.",
+    "privacyRequired": "Debes aceptar la Política de privacidad.",
+    "registerSuccess": "Registro exitoso. Por favor revisa tu correo para el código de verificación.",
+    "updateSuccess": "Información actualizada correctamente.",
+    "updateError": "Error al actualizar la información.",
+    "generalError": "Algo salió mal.",
+    "enterAddress": "Por favor ingrese su dirección"
+  },
+  "Verify Email": {
+    "verify_email": "Verificar correo electrónico",
+    "resend_code": "Reenviar código",
+    "loading": "Verificando...",
+    "sending": "Enviando...",
+    "enter_full_code": "Por favor, introduce el código completo",
+    "email_verified": "¡Correo electrónico verificado con éxito!",
+    "already_verified": "Usuario ya verificado",
+    "verification_failed": "Verificación fallida. Código incorrecto",
+    "something_wrong": "🚨 Algo salió mal",
+    "resend_timer": "Reenvío disponible en {seconds}s",
+    "new_code_sent": "Nuevo código de verificación enviado a tu correo"
+  },
+  "Dashboard": {
+    "card1": "Juego",
+    "card2": "Archivo histórico",
+    "card3": "Premios",
+    "card4": "Perfil",
+    "card5": "Clasificación",
+    "card6": "Preguntas frecuentes",
+    "lang1": "Catalán",
+    "lang2": "Castellano",
+    "lang3": "Inglés",
+    "lang4": "Francés",
+    "complete1": "¡Enhorabuena! Habéis recogido todas las monedas romanas y descubierto los secretos de los caminos de la Pobla de Mafumet. Espero que hayáis disfrutado de esta gran aventura. ¡Hasta la próxima!",
+    "complete2": "Si queréis volver a jugar, id al menú y reiniciad el juego.",
+    "keep_playing": "Continuar",
+    "read_more": "Más información",
+    "pic1": "Fondo de Llacunalba (archivo Joan Virella - 1971)",
+    "pic2": "La fuente del Bosque (archivo Joan Virella - 1971)",
+    "pic3": "Masías del término. Cal Simó (foto Vicenç Carbonell - 1968)",
+    "pic4": "Aspecto de la calle Mayor en los años 30 (archivo Albert Virella)",
+    "pic5": "Castillo de Canyelles. Vestíbulo de la planta noble (archivo Miquel Salinas - 1990)",
+    "pic6": "Masías del término. Cal Fort (foto Vicenç Carbonell - 1979)",
+    "pic7": "Masías del término. Cal Domingo (foto Vicenç Carbonell - 1979)",
+    "pic8": "Castillo de Canyelles. Ala norte (archivo Miquel Salinas - 1990)",
+    "pic9": "Castillo de Canyelles. Ala de poniente (archivo Vicenç Carbonell)",
+    "pic10": "Castillo de Canyelles. Vestíbulo de entrada a la planta baja (archivo Miquel Salinas - 1990)",
+    "pic11": "Castillo de Canyelles. Antiguas caballerizas adosadas a la muralla exterior (archivo Miquel Salinas - 1984)",
+    "pic12": "Castillo de Canyelles. Arcos apuntados adosados al basamento de la primitiva torre redonda (archivo Miquel Salinas - 1984)",
+    "pic13": "Castillo de Canyelles. Probable sala de armas en la planta baja (archivo Miquel Salinas - 1990)",
+    "pic14": "Detalle del barrio de Quintanes. Cal Cosme y Ca l’Arrufat (archivo Salvador Raventós)",
+    "pic15": "Castillo de Canyelles. Uno de los salones de la planta noble, actualmente sala de billar (archivo Miquel Salinas - 1990)",
+    "pic16": "Castillo de Canyelles. Salón de la planta noble notablemente reformado en la última restauración (archivo Miquel Salinas - 1990)",
+    "pic17": "Castillo de Canyelles. Dormitorio de la última baronesa de Canyelles restaurado hacia 1845/55 (archivo Miquel Salinas - 1984)",
+    "pic18": "Iglesia parroquial y castillo, según una foto de los años 30 (archivo Albert Virella)",
+    "pic19": "Iglesia parroquial, la rectoría y el castillo ya en los años 65 (archivo Salvador Raventós)",
+    "pic20": "Altar mayor de la iglesia parroquial a finales de la década de los 30 (Albert Virella)",
+    "pic21": "Barrio de Cal Xum hacia 1965 (archivo Salvador Raventós)",
+    "pic22": "Fragmento del meteorito de Canyelles conservado en el Museo de Historia Natural de Madrid (Servicio del Mapa Geológico de Cataluña, Memoria hoja nº 34, Vilafranca del Penedès 1922)",
+    "pic23": "Masías del término. La Plana de Capellet (foto Vicenç Carbonell - 1965)",
+    "pic24": "La calle Nueva hacia los años 30 (archivo Albert Virella)",
+    "pic25": "Masías del término. Cal Deus (foto Vicenç Carbonell - 1968)",
+    "pic26": "Masías del término. Can Ferrer de Llacunalba, al fondo el Puig de l’Àliga (foto Vicenç Carbonell - 1972)",
+    "pic27": "Masías del término. El Maset (foto Vicenç Carbonell - 1965)",
+    "pic28": "Vista general de Canyelles y del barrio de Quintana desde poniente. Al fondo el Montgròs (archivo Salvador Raventós - 1965)",
+    "pic29": "Masías del término. Cal Rigol (foto Vicenç Carbonell - 1965)",
+    "pic30": "Masías del término. Cal Rei (foto Vicenç Carbonell - 1979)",
+    "pic31": "Masías del término. Cal Coldori (foto Vicenç Carbonell - 1965)",
+    "pic32": "Fuente de Cal Ramonet (archivo Joan Virella - 1971)",
+    "pic33": "Vista general de Canyelles desde levante. Al fondo la montaña de Olèrdola (archivo Salvador Raventós)",
+    "pic34": "El puente Mauriei (Joan Virella - 1971)"
+  },
+  "Map": {
+    "first": "PRIMERA",
+    "second": "SEGUNDA",
+    "third": "TERCERA",
+    "fourth": "CUARTA",
+    "fifth": "QUINTA",
+    "sixth": "SEXTA",
+    "seventh": "SÉPTIMA",
+    "eighth": "OCTAVA",
+    "ninth": "NOVENA",
+    "title1": "PARADA",
+    "title2": "Los secretos de las vías romanas",
+    "first_title": "El Diamante de la Memoria",
+    "second_title": "El Zafiro de la Creatividad",
+    "third_title": "La Amatista del Fuego y la Tierra",
+    "fourth_title": "El Rubí de la Pasión",
+    "fifth_title": "La Esmeralda de la Fe",
+    "sixth_title": "El Topacio de la Unión",
+    "button": "JUGAR"
+  },
+  "Progress": {
+    "title1": "Hola, ",
+    "title2": "NIVEL ",
+    "title3": "Fragmentos del meteorito",
+    "button1": "PROGRESO",
+    "title4": "Recompensas del Festival",
+    "title5": "Puntos",
+    "title6": "Completado",
+    "button2": "DESCUBRIMIENTOS",
+    "button3": "Reanudar",
+    "confirm": "Confirmar",
+    "cancel": "Cancelar",
+    "confirmMessage": "¿Estás seguro de que quieres reiniciar?"
+  },
+  "Level": {
+    "title1": "Hola, ",
+    "title2": "NIVEL ",
+    "title3": "Fragmentos del meteorito",
+    "button": "NIVEL",
+    "row1": "NIVEL AVANZADO",
+    "row2": "NIVEL EXPERTO",
+    "row3": "NIVEL APRENDIZ",
+    "row4": "NIVEL PRINCIPIANTE",
+    "rowtitle": "Gana 1000 puntos"
+  },
+  "StartQuiz": {
+    "title": "GRAN MAGMA",
+    "description": "Ahora ha llegado el momento de comprobar vuestra experiencia sobre el Imperio Romano contestando la siguiente pregunta.",
+    "button1": "EMPEZAR"
+  },
+  "Quiz": {
+    "title": "¿Cuál de estas frases NO es cierta?",
+    "option1": "Los romanos crearon largas vías pavimentadas",
+    "option2": "Los romanos construyeron acueductos",
+    "option3": "Los romanos crearon 2 cohetes para ir a la luna",
+    "option4": "Los romanos no construyeron acueductos"
+  },
+  "DidYouKnow": {
+    "title": "¿Sabías que?",
+    "description": "Cras eget metus vel risus molestie vehicula. Fusce faucibus nulla libero, ut varius velit cursus ac. Phasellus pellentesque tortor lacus, sit amet ullamcorper augue elementum vitae. Nullam varius luctus dolor in commodo. Donec ut augue vitae justo tristique consequat. Nam non efficitur magna, sit amet venenatis nisl.",
+    "button": "VAMOS"
+  },
+  "Classification": {
+    "title": "CLASIFICACIÓN",
+    "tablehead1": "1. Nombre",
+    "tablehead2": "2. Apellidos",
+    "tablehead3": "3. Puntos",
+    "row1data1": "Craig",
+    "row1data2": "Bloemsma",
+    "row1data3": "1000",
+    "row2data1": "Albert",
+    "row2data2": "Mozé Fàbregasx",
+    "row3data3": "654"
+  },
+  "FAQS": {
+    "title": "FAQ'S",
+    "button1": "AR FAQ",
+    "button2": "JUEGO FAQ",
+    "button3": "MAPA FAQ",
+    "ar": {
+      "q1": "¿Qué es la realidad aumentada (AR) y cómo la usamos aquí?",
+      "a1": "La realidad aumentada es una tecnología que permite ver elementos digitales —como personajes, objetos o escenas— superpuestos al entorno real a través de la cámara de tu móvil. En este juego, se usa para ver a Roc, recolectar fragmentos de meteorito y descubrir los hallazgos.",
+      "q2": "¿Necesito descargar alguna aplicación?",
+      "a2": "No. Esta es una aplicación web: solo necesitas acceder al enlace a través de tu navegador (Chrome, Safari...). No es necesario descargar nada.",
+      "q3": "¿Es mi teléfono compatible con RA?",
+      "a3": "Funciona con la mayoría de los dispositivos recientes que tengan cámara y un navegador actualizado. Debes permitir el acceso a la cámara. Si tienes problemas, prueba con otro navegador o dispositivo.",
+      "q4": "No veo nada cuando abro la cámara. ¿Qué puedo hacer?",
+      "a4": "Asegúrate de que:\n\n● Has llegado físicamente al punto correcto en el mapa (geolocalización).\n● Has otorgado acceso a la cámara.\n● Hay suficiente luz alrededor.\nSi aún no funciona, cierra y vuelve a abrir el navegador.",
+      "q5": "¿Se requiere conexión a internet para usar RA?",
+      "a5": "Sí. La RA se carga en el navegador, por lo que necesitas datos móviles o Wi-Fi durante la experiencia.",
+      "q6": "¿Es seguro usar RA mientras camino?",
+      "a6": "Sí, pero mantente atento a tu entorno mientras usas la cámara. No camines mirando tu teléfono y siempre presta atención a tu alrededor.",
+      "q7": "¿Puedo tomar fotos o videos con RA?",
+      "a7": "¡Sí! Puedes tomar capturas de pantalla y grabar videos con Roc y las diferentes experiencias de RA y compartirlas. Es una excelente manera de recordar y compartir tu aventura."
+    },
+    "game": {
+      "q1": "¿Cuál es el objetivo del juego?",
+      "a1": "El objetivo es descubrir las seis piedras preciosas de Canyelles superando retos en realidad aumentada. A lo largo del recorrido deberás recolectar fragmentos de meteorito y conseguir los minerales únicos.",
+      "q2": "¿Qué diferencia hay entre un fragmento de meteorito y un hallazgo?",
+      "a2": "Los fragmentos de meteorito son elementos naturales que se deben recolectar mediante retos interactivos con AR. \nLos hallazgos son las piedras preciosas de Canyelles.",
+      "q3": "¿Cómo puedo conseguir fragmentos de meteorito y las piedras preciosas?",
+      "a3": "Debes llegar físicamente a los puntos geolocalizados que aparecen en el mapa. Allí, Roc te contará una historia y te propondrá un reto interactivo y una pregunta. Si lo superas, obtendrás fragmentos de meteorito y la piedra preciosa asociada a ese punto.",
+      "q4": "¿Qué pasa si no acierto un reto o una pregunta?",
+      "a4": "Los retos interactivos se superan recolectando un número determinado de fragmentos de meteorito con AR. El reto no termina hasta conseguir todos los fragmentos. Normalmente son entre seis y siete. Si no se acierta una pregunta, el sistema pide volver a intentarlo.",
+      "q5": "¿Es necesario registrarse para jugar?",
+      "a5": "Sí, el registro es obligatorio para participar en el juego, acceder a los puntos de realidad aumentada y desbloquear los fragmentos de meteorito y las piedras preciosas. Esto nos permite guardar tu progreso, ofrecerte una experiencia personalizada y garantizar el correcto funcionamiento del sistema. El registro es rápido y solo hay que hacerlo una vez.",
+      "q6": "¿Puedo jugar en grupo o con mi familia?",
+      "a6": "¡Sí! El juego está diseñado para jugarse en grupo: con amigos, familia o en la escuela. Solo necesitas un teléfono o tableta por equipo y el deseo de explorar juntos.",
+      "q7": "¿Cuánto dura el juego completo?",
+      "a7": "Depende de tu ritmo. La ruta completa suele durar entre 45 y 60 minutos, pero puedes hacerla seguida o dividirla en distintos momentos."
+    },
+    "map": {
+      "q1": "¿Cómo funciona el mapa del juego?",
+      "a1": "El mapa interactivo muestra puntos geolocalizados a lo largo de la ruta. El contenido de RA solo se desbloquea cuando llegas físicamente a un punto.",
+      "q2": "¿Es necesaria la geolocalización en mi teléfono?",
+      "a2": "Sí. Sin la geolocalización activada, no puedes jugar. El sistema necesita saber tu ubicación para verificar que has llegado a cada punto. Recomendamos activar la ubicación antes de comenzar.\n\nCómo activar la geolocalización:\n\n**En Android:**\n1. Abre la configuración de tu dispositivo.\n2. Ve a Ubicación.\n3. Activa la Ubicación.\n4. Asegúrate de que tu navegador tenga permisos de ubicación:\n - Configuración > Aplicaciones > [Nombre del navegador] > Permisos > Ubicación > Permitir siempre o Mientras se usa.\n\n**En iPhone:**\n1. Abre Configuración.\n2. Ve a Privacidad y Seguridad > Servicios de Ubicación.\n3. Activa los Servicios de Ubicación.\n4. Verifica la configuración de tu navegador (Safari o Chrome).\n5. Asegúrate de que la ubicación esté permitida durante el uso.",
+      "q3": "¿Qué pasa si el mapa no me detecta correctamente?",
+      "a3": "● Asegúrate de que tu ubicación esté activada (ver pasos anteriores).\n● Actualiza la página de tu navegador.",
+      "q4": "¿Se requiere conexión a internet para usar el mapa?",
+      "a4": "Sí. La aplicación web necesita una conexión activa para mostrar el mapa y verificar tu ubicación. Sin embargo, el uso de datos es muy bajo.",
+      "q5": "El mapa dice que no estoy en el lugar correcto, pero sí lo estoy. ¿Qué puedo hacer?",
+      "a5": "● Muévete ligeramente por la zona: a veces el GPS necesita unos segundos.\n● Asegúrate de no estar bajo una estructura o en interiores.\n● Verifica que tengas una buena señal de GPS o móvil.",
+      "q6": "¿Puedo hacer la ruta en cualquier orden?",
+      "a6": "No. La ruta es lineal. Debes seguir el orden establecido de los puntos, ya que cada desafío y hallazgo depende del punto anterior. El mapa solo mostrará el siguiente punto desbloqueado; no puedes avanzar sin completar el actual."
+    }
+  },
+  "Amics": {
+    "title": "DESCUBRIMIENTOS",
+    "description": "Sed nec risus risus. Suspendisse lobortis risus eu velit gravida ornare at ornare ante. Nam malesuada consequat leo et facilisis. Nunc et quam euismod, auctor nulla porta, pretium lacus."
+  },
+  "Auth": {
+    "ForgotPassword": "¿Olvidaste tu contraseña?",
+    "NoAccount": "¿No tienes una cuenta?",
+    "CreateAccount": "Crear cuenta",
+    "HaveAccount": "¿Ya tienes una cuenta?",
+    "LoginAccount": "Iniciar sesión"
+  },
+  "Links": {
+    "GAME": "JUEGO",
+    "Historical_link": "ARCHIVO HISTÓRICO",
+    "Award_link": "PREMIOS",
+    "Profile_link": "PERFIL",
+    "Ranking_Link": "CLASIFICACIÓN",
+    "LOGOUT_link": "CERRAR SESIÓN"
+  },
+  "Head": {
+    "title1": "Menú",
+    "title2": "Acceder",
+    "title3": "Cerrar sesión",
+    "heading1": "CanYelles",
+    "heading2": "y La historia del meteorito"
+  },
+  "Volcano3Quiz1": {
+    "title": "¿Cuál de estas afirmaciones NO es verdadera?",
+    "option1": "Los romanos crearon dos cohetes para ir a la Luna",
+    "option2": "Los romanos crearon largas carreteras pavimentadas",
+    "option3": "Los romanos construyeron acueductos",
+    "option4": "El aceite de oliva era esencial en la cocina romana"
+  },
+  "Volcano3Quiz2": {
+    "title": "¿Cuál de estos productos NO fue cultivado por los romanos en la zona?",
+    "option1": "Arroz",
+    "option2": "Trigo",
+    "option3": "Uvas",
+    "option4": "Olivos"
+  },
+  "Volcano3Quiz3": {
+    "title": "¿Cuál de estas tecnologías NO fue desarrollada por los romanos?",
+    "option1": "Motores de vapor para sus vehículos",
+    "option2": "Acueductos para transportar agua",
+    "option3": "Canales de riego para la agricultura",
+    "option4": "Molinos movidos por agua"
+  },
+  "Volcano6Quiz1": {
+    "title": "Según la leyenda del valiente catalán, ¿qué significa Mafumet?",
+    "option1": "Mano agujereada",
+    "option2": "Mano atada",
+    "option3": "Mano sudada",
+    "option4": "Mano fría"
+  },
+  "Volcano6Quiz2": {
+    "title": "¿Qué técnica trajeron los sarracenos para mejorar el riego de los campos?",
+    "option1": "Ruedas para elevar agua",
+    "option2": "Acueductos",
+    "option3": "Regaderas portátiles",
+    "option4": "Presa"
+  },
+  "Volcano6Quiz3": {
+    "title": "¿Cuál de estos nunca ha sido uno de los nombres de la Pobla de Mafumet?",
+    "option1": "Pobla de Tarragona",
+    "option2": "Pobla de Mafumet",
+    "option3": "Pobla de Bufomet",
+    "option4": "Mofomet"
+  },
+  "Volcano9Quiz1": {
+    "title": "¿Por qué Guillem de Montoliu vendió la Pobla de Mafumet?",
+    "option1": "Por problemas económicos",
+    "option2": "Para irse de vacaciones a Salou",
+    "option3": "Para comprar El Morell",
+    "option4": "Para hacerse sacerdote"
+  },
+  "Volcano9Quiz2": {
+    "title": "¿Quién aseguró que los cristianos pudieran establecerse permanentemente en la Pobla de Mafumet?",
+    "option1": "Ramon Berenguer III",
+    "option2": "Pere Casanovas I",
+    "option3": "Guillem del Morell II",
+    "option4": "Jaume I"
+  },
+  "Volcano9Quiz3": {
+    "title": "¿Cuál de estos servicios NO se ofrecía a los habitantes de la Pobla de Mafumet durante la época feudal?",
+    "option1": "Peluquería",
+    "option2": "Carnicería",
+    "option3": "Herrería",
+    "option4": "Taberna"
+  },
+  "Volcano12Quiz1": {
+    "title": "¿Por qué ha sido tan importante la Pobla de Mafumet durante tantos siglos?",
+    "option1": "Por su ubicación estratégica",
+    "option2": "Por vender queso",
+    "option3": "Por estar junto a El Morell",
+    "option4": "Por acoger el Mundial de 2010"
+  },
+  "Volcano12Quiz2": {
+    "title": "¿Qué hicieron algunos habitantes durante la Guerra Civil Española para salvar la imagen de la Virgen de Lledó?",
+    "option1": "La escondieron para evitar que fuera quemada",
+    "option2": "La reconstruyeron con madera nueva",
+    "option3": "La llevaron a la catedral de Tarragona",
+    "option4": "La vendieron para recaudar dinero para el pueblo"
+  },
+  "Volcano12Quiz3": {
+    "title": "¿Qué fábrica se construyó hace unos 60 años en la Pobla de Mafumet, ayudando a modernizar el pueblo?",
+    "option1": "Una refinería de petróleo",
+    "option2": "Una fábrica de queso",
+    "option3": "Una fábrica de coches",
+    "option4": "Una fábrica textil"
+  },
+  "Mapp": {
+    "button1": "MAPA",
+    "button2": "LISTADO",
+    "text1": "Municipio",
+    "text2": "Centro de Interpretación del Romanticismo",
+    "text3": "Torre Blava - Espacio Guinovart"
+  },
+  "QuizPage": {
+    "try_again": "Intentar otra vez",
+    "finding_1": "PRIMERA PARADA - EL SECRETO DE LAS VÍAS ROMANAS",
+    "finding_2": "SEGUNDA PARADA - EL SECRETO DE LOS CULTIVOS ROMANOS",
+    "finding_3": "TERCERA PARADA - EL SECRETO DE LA TECNOLOGÍA ROMANA",
+    "finding_4": "CUARTA PARADA - EL SECRETO DE LA GUARDIA DE MAHOMET",
+    "finding_5": "QUINTA PARADA - EL SECRETO DE LA MANO PERFORADA",
+    "finding_6": "SEXTA PARADA - EL SECRETO DE LOS 13 NOMBRES DE LA POBLA DE MAFUMET",
+    "finding_7": "SÉPTIMA PARADA - EL SECRETO DE LA REPOBLACIÓN CRISTIANA",
+    "finding_8": "OCTAVA PARADA - EL SECRETO DE LOS SEÑORES FEUDALES DE LA POBLA",
+    "finding_9": "NOVENA PARADA - EL SECRETO DEL DÍA A DÍA EN LA POBLA",
+    "finding_10": "DÉCIMA PARADA - EL SECRETO DE UNA NUEVA ÉPOCA",
+    "finding_11": "UNDÉCIMA PARADA - EL SECRETO DEL FUEGO EN LA IGLESIA",
+    "finding_12": "DUODÉCIMA PARADA - EL SECRETO DE NUESTRA POBLA DE MAFUMET",
+    "description": "¡Vuelve a explorar más PDI! Sigue descubriendo e interactuando con cada punto para desbloquear recompensas, ganar puntos y subir de nivel. Cuanto más explores, más progresarás.",
+    "button": "Continuar el juego"
+  },
+  "intro": {
+    "title1": "Bienvenidos al juego “Los caminos secretos de la Pobla de Mafumet”. Escuchad a Mafu, una tortuga mágica que vive en la Pobla de Mafumet desde hace 2000 años.",
+    "text1": "Bienvenidos al juego “Canyelles y la historia del meteorito”. Escucha a Roc, un fragmento del meteorito que cayó en Canyelles hace casi doscientos años.",
+    "title2": "Bienvenidos al juego “Los caminos secretos de la Pobla de Mafumet”. Escuchad a Mafu, una tortuga mágica que vive en la Pobla de Mafumet desde hace 2000 años.",
+    "text2": "Escucha a Roc y encuentra los fragmentos del meteorito. Tócalos para recogerlos.",
+    "title3": "Esta experiencia de realidad aumentada requiere acceso a la cámara y a los sensores de movimiento de tu dispositivo.",
+    "text3": "Escucha a Roc y lanza las rocas volcánicas dentro de los volcanes.",
+    "button1": "Saltar Introducción",
+    "button2": "Continuar",
+    "button3": "Experiencia de RA"
+  },
+  "CoinMap": {
+    "congratulation": "¡Enhorabuena!",
+    "text": "Has llegado con éxito a tu destino. Ahora estás a la distancia adecuada para experimentar la experiencia de realidad aumentada.",
+    "button": "Siguiente"
+  },
+  "gameText": {
+    "place": "Colocar Avatar",
+    "audioPermission": "Permiso de audio requerido",
+    "cameraPermission": "Permiso de cámara requerido",
+    "audioAllow": "Permitir audio",
+    "Cancel": "Cancelar",
+    "enableRotation": "Habilitar rotación",
+    "try_again": "Intentar de nuevo"
+  },
+  "privacyPolicy": {
+    "title": "Política de Privacidad",
+    "sections": {
+      "responsible": {
+        "title": "Responsable del tratamiento",
+        "content": "En cumplimiento del Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD), se informa que los datos personales facilitados a través de la aplicación serán tratados bajo la responsabilidad de la siguiente entidad:",
+        "items": [
+          "Denominación comercial: Som Experiències",
+          "Denominación fiscal: Albert Mozó Fàbregas",
+          "CIF: 45790766C",
+          "Dirección: Rambla Lluís Companys, 2, 2n 5a, 08800 Vilanova i la Geltrú",
+          "Nombre y NIF de contacto: Albert Mozó Fàbregas – NIF 45790766C",
+          "Teléfono: 685492584",
+          "Correo electrónico: info@somexperiencies.cat"
+        ]
+      },
+      "dataCollected": {
+        "title": "Datos recogidos",
+        "content": "La aplicación puede recoger los siguientes datos personales de los usuarios:",
+        "items": [
+          "Mediante registro con Google o Microsoft: nombre, apellidos y correo electrónico.",
+          "Mediante formulario personalizado: nombre, apellidos, correo electrónico, teléfono y lugar de procedencia.",
+          "Mediante permisos del dispositivo: geolocalización (para desbloquear puntos de juego) y acceso a la cámara (para funcionalidades de realidad aumentada)."
+        ]
+      },
+      "purpose": {
+        "title": "Finalidad del tratamiento",
+        "content": "Los datos se tratan con las finalidades siguientes:",
+        "items": [
+          "Permitir el acceso y uso de la aplicación y de sus contenidos interactivos.",
+          "Garantizar la activación de los puntos de juego y la personalización de la experiencia.",
+          "Mantener la seguridad y mejorar los servicios ofrecidos.",
+          "Comunicar novedades o información relacionada con la aplicación, con consentimiento previo del usuario."
+        ]
+      },
+      "legalBasis": {
+        "title": "Base legal",
+        "content": "La base jurídica del tratamiento es el consentimiento del usuario, otorgado al registrarse y aceptar esta política de privacidad."
+      },
+      "dataRetention": {
+        "title": "Conservación de datos",
+        "content": "Los datos se conservarán únicamente mientras sea necesario para la prestación del servicio y, en todo caso, durante los plazos legalmente establecidos. No se guardan datos de geolocalización ni imágenes de la cámara más allá del uso temporal en el dispositivo."
+      },
+      "dataSharing": {
+        "title": "Comunicación de datos a terceros",
+        "content": "Los datos no serán cedidos a terceros excepto en casos de obligación legal o requerimiento por autoridad competente."
+      },
+      "userRights": {
+        "title": "Derechos de los usuarios",
+        "content": "Los usuarios pueden ejercer sus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad dirigiéndose al responsable a través de info@somexperiencies.cat o por correo postal a la dirección indicada anteriormente."
+      },
+      "effect": {
+        "title": "Efecto",
+        "content": "El uso de la aplicación implica la aceptación expresa y plena de la presente política de privacidad. Esta política entra en vigor a partir de su publicación y estará vigente hasta que sea modificada o actualizada en esta misma aplicación."
+      }
+    }
+  }
+}

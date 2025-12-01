@@ -1,0 +1,454 @@
+{
+  "Login": {
+    "button1": "CONNEXION",
+    "button2": "S'INSCRIRE",
+    "enter_credentials": "Veuillez entrer l'email et le mot de passe",
+    "email_not_verified": "Email non vérifié. Veuillez vérifier votre email d'abord.",
+    "login_success": "Connexion réussie !",
+    "login_failed": "Échec de la connexion. Email ou mot de passe incorrect.",
+    "loading": "Connexion en cours...",
+    "or": "OU",
+    "continue_google": "Continuer avec Google",
+    "continue_microsoft": "Continuer avec Microsoft"
+  },
+  "Register": {
+    "field1": "Prénom",
+    "field2": "Nom de famille",
+    "field3": "E-mail",
+    "field4": "Mot de passe",
+    "field5": "Numéro de téléphone portable",
+    "field6": "Lieu d'origine",
+    "check1": "J'accepte de recevoir des newsletters et des promotions de Ajuntament de Canyelles",
+    "check21": "J'ai lu et j'accepte la",
+    "check22": "Politique de confidentialité",
+    "button1": "S'INSCRIRE",
+    "processing": "Traitement",
+    "button2": "JE SUIS DÉJÀ INSCRIT",
+    "enterPassword": "Veuillez entrer un nouveau mot de passe",
+    "enterEmail": "Veuillez entrer votre e-mail",
+    "resetSuccess": "Réinitialisation du mot de passe réussie !",
+    "resetFailed": "Échec de la réinitialisation du mot de passe",
+    "somethingWrong": "Une erreur est survenue",
+    "resetting": "Réinitialisation...",
+    "resetButton": "Réinitialiser le mot de passe",
+    "placeholder": "Entrez le nouveau mot de passe",
+    "sending": "Envoi...",
+    "sendLink": "Envoyer le lien de réinitialisation",
+    "emailSent": "E-mail de réinitialisation envoyé !",
+    "sendFailed": "Échec de l'envoi de l'e-mail de réinitialisation",
+    "invalidEmail": "Veuillez entrer une adresse e-mail valide.",
+    "invalidPhone": "Le numéro de téléphone ne peut contenir que '+', des chiffres et des espaces.",
+    "termsRequired": "Vous devez accepter les Conditions générales.",
+    "privacyRequired": "Vous devez accepter la Politique de confidentialité.",
+    "registerSuccess": "Inscription réussie. Veuillez vérifier votre e-mail pour le code de vérification.",
+    "updateSuccess": "Informations mises à jour avec succès.",
+    "updateError": "Échec de la mise à jour des informations.",
+    "generalError": "Une erreur s'est produite.",
+    "enterAddress": "Veuillez entrer votre adresse"
+  },
+  "Verify Email": {
+    "verify_email": "Vérifier l'email",
+    "resend_code": "Renvoyer le code",
+    "loading": "Vérification...",
+    "sending": "Envoi...",
+    "enter_full_code": "Veuillez entrer le code complet",
+    "email_verified": "Email vérifié avec succès !",
+    "already_verified": "Utilisateur déjà vérifié",
+    "verification_failed": "Échec de la vérification. Code incorrect",
+    "something_wrong": "🚨 Quelque chose a mal tourné",
+    "resend_timer": "Renvoi disponible dans {seconds}s",
+    "new_code_sent": "Nouveau code de vérification envoyé à votre email"
+  },
+  "Dashboard": {
+    "card1": "Jeu",
+    "card2": "Archive historique",
+    "card3": "Prix",
+    "card4": "Profil",
+    "card5": "Classement",
+    "card6": "FAQ",
+    "lang1": "Catalan",
+    "lang2": "Espagnol",
+    "lang3": "Anglais",
+    "lang4": "Français",
+    "complete1": "Félicitations ! Vous avez récolté toutes les pièces romaines et découvert les secrets des chemins de la Pobla de Mafumet. J’espère que vous avez apprécié cette grande aventure. À la prochaine !",
+    "complete2": "Si vous souhaitez rejouer, allez dans le menu et redémarrez le jeu.",
+    "keep_playing": "Continuer",
+    "read_more": "En savoir plus",
+    "pic1": "Fond de Llacunalba (archives Joan Virella - 1971)",
+    "pic2": "La source du Bois (archives Joan Virella - 1971)",
+    "pic3": "Fermes du territoire. Cal Simó (photo Vicenç Carbonell - 1968)",
+    "pic4": "Aspect de la rue Major dans les années 30 (archives Albert Virella)",
+    "pic5": "Château de Canyelles. Vestibule de l’étage noble (archives Miquel Salinas - 1990)",
+    "pic6": "Fermes du territoire. Cal Fort (photo Vicenç Carbonell - 1979)",
+    "pic7": "Fermes du territoire. Cal Domingo (photo Vicenç Carbonell - 1979)",
+    "pic8": "Château de Canyelles. Aile nord (archives Miquel Salinas - 1990)",
+    "pic9": "Château de Canyelles. Aile ouest (archives Vicenç Carbonell)",
+    "pic10": "Château de Canyelles. Vestibule d’entrée du rez-de-chaussée (archives Miquel Salinas - 1990)",
+    "pic11": "Château de Canyelles. Anciennes écuries adossées au mur extérieur (archives Miquel Salinas - 1984)",
+    "pic12": "Château de Canyelles. Arcs en ogive adossés au soubassement de la première tour ronde (archives Miquel Salinas - 1984)",
+    "pic13": "Château de Canyelles. Probable salle d’armes au rez-de-chaussée (archives Miquel Salinas - 1990)",
+    "pic14": "Détail du quartier de Quintanes. Cal Cosme et Ca l’Arrufat (archives Salvador Raventós)",
+    "pic15": "Château de Canyelles. Un des salons de l’étage noble, actuellement salle de billard (archives Miquel Salinas - 1990)",
+    "pic16": "Château de Canyelles. Salon de l’étage noble fortement rénové lors de la dernière restauration (archives Miquel Salinas - 1990)",
+    "pic17": "Château de Canyelles. Chambre de la dernière baronne de Canyelles restaurée vers 1845/55 (archives Miquel Salinas - 1984)",
+    "pic18": "Église paroissiale et château, selon une photo des années 30 (archives Albert Virella)",
+    "pic19": "Église paroissiale, le presbytère et le château dans les années 60 (archives Salvador Raventós)",
+    "pic20": "Maître-autel de l’église paroissiale à la fin des années 30 (Albert Virella)",
+    "pic21": "Quartier de Cal Xum vers 1965 (archives Salvador Raventós)",
+    "pic22": "Fragment du météorite de Canyelles conservé au Musée d’Histoire Naturelle de Madrid (Service de la carte géologique de Catalogne, Mémoire feuille nº 34, Vilafranca del Penedès 1922)",
+    "pic23": "Fermes du territoire. La Plana de Capellet (photo Vicenç Carbonell - 1965)",
+    "pic24": "La rue Neuve dans les années 30 (archives Albert Virella)",
+    "pic25": "Fermes du territoire. Cal Deus (photo Vicenç Carbonell - 1968)",
+    "pic26": "Fermes du territoire. Can Ferrer de Llacunalba, avec le Puig de l’Àliga au fond (photo Vicenç Carbonell - 1972)",
+    "pic27": "Fermes du territoire. El Maset (photo Vicenç Carbonell - 1965)",
+    "pic28": "Vue générale de Canyelles et du quartier de Quintana depuis l’ouest. Le Montgròs au fond (archives Salvador Raventós - 1965)",
+    "pic29": "Fermes du territoire. Cal Rigol (photo Vicenç Carbonell - 1965)",
+    "pic30": "Fermes du territoire. Cal Rei (photo Vicenç Carbonell - 1979)",
+    "pic31": "Fermes du territoire. Cal Coldori (photo Vicenç Carbonell - 1965)",
+    "pic32": "Source de Cal Ramonet (archives Joan Virella - 1971)",
+    "pic33": "Vue générale de Canyelles depuis l’est. La montagne d’Olèrdola au fond (archives Salvador Raventós)",
+    "pic34": "Pont Mauriei (Joan Virella - 1971)"
+  },
+  "Map": {
+    "first": "PREMIER",
+    "second": "DEUXIÈME",
+    "third": "TROISIÈME",
+    "fourth": "QUATRIÈME",
+    "fifth": "CINQUIÈME",
+    "sixth": "SIXIÈME",
+    "seventh": "SEPTIÈME",
+    "eighth": "HUITIÈME",
+    "ninth": "NEUVIÈME",
+    "title1": "ARRÊT",
+    "title2": "Les secrets des routes romaines",
+    "first_title": "Le Diamant de la Mémoire",
+    "second_title": "Le Saphir de la Créativité",
+    "third_title": "L’Améthyste du Feu et de la Terre",
+    "fourth_title": "Le Rubis de la Passion",
+    "fifth_title": "L’Émeraude de la Foi",
+    "sixth_title": "Le Topaze de l’Union",
+    "button": "JOUER"
+  },
+  "Progress": {
+    "title1": "Bonjour, ",
+    "title2": "NIVEAU ",
+    "title3": "Fragments de la météorite",
+    "button1": "PROGRÈS",
+    "title4": "Récompenses du festival",
+    "title5": "Points",
+    "title6": "Terminé",
+    "button2": "DÉCOUVERTES",
+    "button3": "Redémarrage",
+    "confirm": "Confirmer",
+    "cancel": "Annuler",
+    "confirmMessage": "Etes-vous sûr de vouloir redémarrer ?"
+  },
+  "Level": {
+    "title1": "Bonjour, ",
+    "title2": "NIVEAU ",
+    "title3": "Fragments de la météorite",
+    "button": "NIVEAU",
+    "row1": "NIVEAU AVANCÉ",
+    "row2": "NIVEAU EXPERT",
+    "row3": "NIVEAU APPRENTI",
+    "row4": "NIVEAU NOVICE",
+    "rowtitle": "Gagner 1000 points"
+  },
+  "StartQuiz": {
+    "title": "GRAND MAGMA",
+    "description": "C'est maintenant le moment de tester vos connaissances sur l'Empire romain en répondant à la question suivante.",
+    "button1": "COMMENCER"
+  },
+  "Quiz": {
+    "title": "Laquelle de ces affirmations n'est PAS vraie ?",
+    "option1": "Les Romains ont construit de longues routes pavées",
+    "option2": "Les Romains ont construit des aqueducs",
+    "option3": "Les Romains ont construit 2 fusées pour aller sur la lune",
+    "option4": "Les Romains n'ont pas construit d'aqueducs"
+  },
+  "DidYouKnow": {
+    "title": "Le saviez-vous ?",
+    "description": "Demain appartient à ceux qui le construisent aujourd'hui. Restez fort avec un objectif, et ne laissez aucune peur obscurcir votre esprit. La force naît de la persévérance et de l'unité.",
+    "button": "ALLONS-Y"
+  },
+  "Classification": {
+    "title": "CLASSEMENT",
+    "tablehead1": "Prénom",
+    "tablehead2": "Nom de famille",
+    "tablehead3": "Points",
+    "row1data1": "Craig",
+    "row1data2": "Bloemsma",
+    "row1data3": "1000",
+    "row2data1": "Albert",
+    "row2data2": "Mozé Fàbregasx",
+    "row3data3": "654"
+  },
+  "FAQS": {
+    "title": "FAQ'S",
+    "button1": "AR FAQ",
+    "button2": "JEU FAQ",
+    "button3": "CARTE FAQ",
+    "ar": {
+      "q1": "Qu’est-ce que la réalité augmentée (AR) et comment l’utilise-t-on ici ?",
+      "a1": "La réalité augmentée est une technologie qui permet de voir des éléments numériques —comme des personnages, des objets ou des scènes— superposés à l’environnement réel grâce à la caméra de ton téléphone. Dans ce jeu, elle sert à voir Roc, à collecter des fragments de météorite et à découvrir les trouvailles.",
+      "q2": "Dois-je télécharger une application ?",
+      "a2": "Non. Il s'agit d'une application web : il suffit d'accéder au lien via votre navigateur (Chrome, Safari...). Rien ne doit être téléchargé.",
+      "q3": "Mon téléphone est-il compatible avec la RA ?",
+      "a3": "Cela fonctionne avec la plupart des appareils récents équipés d'une caméra et d'un navigateur à jour. Vous devez autoriser l'accès à la caméra. En cas de problème, essayez un autre navigateur ou appareil.",
+      "q4": "Je ne vois rien lorsque j'ouvre la caméra. Que puis-je faire ?",
+      "a4": "Assurez-vous que :\n\n● Vous êtes physiquement au bon point sur la carte (géolocalisation).\n● Vous avez autorisé l'accès à la caméra.\n● Il y a suffisamment de lumière autour.\nSi cela ne fonctionne toujours pas, fermez et rouvrez le navigateur.",
+      "q5": "Faut-il une connexion internet pour utiliser la RA ?",
+      "a5": "Oui. La RA se charge dans le navigateur, vous avez donc besoin de données mobiles ou d'une connexion Wi-Fi pendant l'expérience.",
+      "q6": "Est-il sûr d'utiliser la RA en marchant ?",
+      "a6": "Oui, mais soyez attentif à votre environnement lorsque vous utilisez la caméra. Ne marchez pas en regardant votre téléphone et gardez toujours un œil sur ce qui vous entoure.",
+      "q7": "Puis-je prendre des photos ou des vidéos avec la RA ?",
+      "a7": "Oui ! Vous pouvez prendre des captures d'écran et enregistrer des vidéos avec Roc et les différentes expériences de RA, puis les partager. C'est un excellent moyen de conserver et de partager votre aventure."
+    },
+    "game": {
+      "q1": "Quel est l'objectif du jeu ?",
+      "a1": "L’objectif est de découvrir les six pierres précieuses de Canyelles en relevant des défis en réalité augmentée. Tout au long du parcours, tu devras collecter des fragments de météorite et obtenir des minéraux uniques.",
+      "q2": "Quelle est la différence entre un fragment de météorite et une trouvaille ?",
+      "a2": "Les fragments de météorite sont des éléments naturels à collecter grâce à des défis interactifs en AR.\nLes trouvailles sont les pierres précieuses de Canyelles.",
+      "q3": "Comment puis-je obtenir des fragments de météorite et des pierres précieuses ?",
+      "a3": "Tu dois te rendre physiquement aux points géolocalisés indiqués sur la carte. Là, Roc te racontera une histoire et te proposera un défi interactif et une question. Si tu réussis, tu obtiendras des fragments de météorite et la pierre précieuse associée à ce point.",
+      "q4": "Que se passe-t-il si je rate un défi ou une question ?",
+      "a4": "Les défis interactifs se terminent lorsque tu as collecté un certain nombre de fragments de météorite en AR. Le défi ne se termine pas avant d’avoir tout recueilli, généralement entre six et sept fragments. Si tu rates une question, le système te demande de réessayer.",
+      "q5": "Faut-il être inscrit pour jouer ?",
+      "a5": "Oui, l’inscription est obligatoire pour participer au jeu, accéder aux points de réalité augmentée et débloquer les fragments de météorite et les pierres précieuses. Cela nous permet de sauvegarder ta progression, de t’offrir une expérience personnalisée et d’assurer le bon fonctionnement du système. L’inscription est rapide et ne doit être faite qu’une seule fois.",
+      "q6": "Puis-je jouer en groupe ou avec ma famille ?",
+      "a6": "Oui ! Le jeu est conçu pour être joué en groupe : avec des amis, en famille ou à l'école. Vous n'avez besoin que d'un téléphone ou d'une tablette par équipe et de l'envie d'explorer ensemble.",
+      "q7": "Combien de temps dure le jeu complet ?",
+      "a7": "Cela dépend de ton rythme. Le parcours complet dure généralement entre 45 et 60 minutes, mais tu peux le faire en une seule fois ou le répartir sur plusieurs moments."
+    },
+    "map": {
+      "q1": "Comment fonctionne la carte du jeu ?",
+      "a1": "La carte interactive affiche les points géolocalisés le long du parcours. Le contenu en RA ne se débloque que lorsque vous atteignez physiquement un point.",
+      "q2": "La géolocalisation est-elle requise sur mon téléphone ?",
+      "a2": "Oui. Sans la géolocalisation activée, vous ne pouvez pas jouer. Le système doit connaître votre position pour vérifier que vous avez atteint chaque point. Nous recommandons d'activer la localisation avant de commencer.\n\nComment activer la géolocalisation :\n\n**Sur Android :**\n1. Ouvrez les paramètres de votre appareil.\n2. Allez dans Localisation.\n3. Activez la localisation.\n4. Assurez-vous que votre navigateur a les permissions de localisation :\n - Paramètres > Applications > [Nom du navigateur] > Permissions > Localisation > Autoriser toujours ou Pendant l'utilisation.\n\n**Sur iPhone :**\n1. Ouvrez les Réglages.\n2. Allez dans Confidentialité et sécurité > Services de localisation.\n3. Activez les services de localisation.\n4. Vérifiez les paramètres de votre navigateur (Safari ou Chrome).\n5. Assurez-vous que la localisation est autorisée pendant l'utilisation.",
+      "q3": "Et si la carte ne me détecte pas correctement ?",
+      "a3": "● Assurez-vous que votre localisation est activée (voir les étapes ci-dessus).\n● Rafraîchissez la page de votre navigateur.",
+      "q4": "Faut-il une connexion internet pour utiliser la carte ?",
+      "a4": "Oui. L'application web nécessite une connexion active pour afficher la carte et vérifier votre position. Cependant, l'utilisation des données est très faible.",
+      "q5": "La carte indique que je ne suis pas au bon endroit, mais j'y suis. Que puis-je faire ?",
+      "a5": "● Déplacez-vous légèrement dans la zone : parfois, le GPS a besoin de quelques secondes.\n● Assurez-vous de ne pas être sous une structure ou à l'intérieur.\n● Vérifiez que vous avez un bon signal GPS ou mobile.",
+      "q6": "Puis-je faire le parcours dans n'importe quel ordre ?",
+      "a6": "Non. Le parcours est linéaire. Vous devez suivre l'ordre établi des points, car chaque défi et trouvaille dépend du point précédent. La carte n'affichera que le prochain point débloqué, vous ne pouvez pas avancer sans compléter le point actuel."
+    }
+  },
+  "Auth": {
+    "ForgotPassword": "Mot de passe oublié ?",
+    "NoAccount": "Vous n'avez pas de compte ?",
+    "CreateAccount": "Créer un compte",
+    "HaveAccount": "Vous avez déjà un compte ?",
+    "LoginAccount": "Se connecter"
+  },
+  "Amics": {
+    "title": "DÉCOUVERTES",
+    "description": "Ne sois pas triste. Laisse le chagrin passer doucement, car le passé est révolu. Accueille le présent avec courage et sérénité. Laisse l'espoir guider tes pas et l'amour te rendre fort."
+  },
+  "Links": {
+    "GAME": "JEU",
+    "Historical_link": "ARCHIVE HISTORIQUE",
+    "Award_link": "PRIX / RÉCOMPENSES",
+    "Profile_link": "PROFIL",
+    "Ranking_Link": "CLASSEMENT",
+    "LOGOUT_link": "DÉCONNEXION"
+  },
+  "Head": {
+    "title1": "Menu",
+    "title2": "Accès",
+    "title3": "Déconnexion",
+    "heading1": "CanYelles",
+    "heading2": "et L'histoire de la météorite"
+  },
+  "Volcano3Quiz1": {
+    "title": "Laquelle de ces affirmations n’est PAS vraie ?",
+    "option1": "Les Romains ont créé deux fusées pour aller sur la Lune",
+    "option2": "Les Romains ont construit de longues routes pavées",
+    "option3": "Les Romains ont construit des aqueducs",
+    "option4": "L’huile d’olive était essentielle dans la cuisine romaine"
+  },
+  "Volcano3Quiz2": {
+    "title": "Lequel de ces produits n’était PAS cultivé par les Romains dans la région ?",
+    "option1": "Riz",
+    "option2": "Blé",
+    "option3": "Raisin",
+    "option4": "Oliviers"
+  },
+  "Volcano3Quiz3": {
+    "title": "Laquelle de ces technologies n’a PAS été développée par les Romains ?",
+    "option1": "Des moteurs à vapeur pour leurs véhicules",
+    "option2": "Des aqueducs pour transporter l’eau",
+    "option3": "Des canaux d’irrigation pour l’agriculture",
+    "option4": "Des moulins à eau"
+  },
+  "Volcano6Quiz1": {
+    "title": "Selon la légende du courageux Catalan, que signifie Mafumet ?",
+    "option1": "Main percée",
+    "option2": "Main liée",
+    "option3": "Main moite",
+    "option4": "Main froide"
+  },
+  "Volcano6Quiz2": {
+    "title": "Quelle technique les Sarrasins ont-ils apportée pour améliorer l’irrigation des champs ?",
+    "option1": "Roues pour élever l’eau",
+    "option2": "Aqueducs",
+    "option3": "Arrosoirs portatifs",
+    "option4": "Barrages"
+  },
+  "Volcano6Quiz3": {
+    "title": "Lequel de ces noms n’a jamais été un des noms de la Pobla de Mafumet ?",
+    "option1": "Pobla de Tarragona",
+    "option2": "Pobla de Mafumet",
+    "option3": "Pobla de Bufomet",
+    "option4": "Mofomet"
+  },
+  "Volcano9Quiz1": {
+    "title": "Pourquoi Guillem de Montoliu a-t-il vendu la Pobla de Mafumet ?",
+    "option1": "À cause de problèmes financiers",
+    "option2": "Pour partir en vacances à Salou",
+    "option3": "Pour acheter El Morell",
+    "option4": "Pour devenir prêtre"
+  },
+  "Volcano9Quiz2": {
+    "title": "Qui a garanti que les chrétiens puissent s’installer définitivement à la Pobla de Mafumet ?",
+    "option1": "Ramon Berenguer III",
+    "option2": "Pere Casanovas I",
+    "option3": "Guillem del Morell II",
+    "option4": "Jaume I"
+  },
+  "Volcano9Quiz3": {
+    "title": "Lequel de ces services n’était PAS offert aux habitants de la Pobla de Mafumet à l’époque féodale ?",
+    "option1": "Coiffure",
+    "option2": "Boucherie",
+    "option3": "Forgeron",
+    "option4": "Taverne"
+  },
+  "Volcano12Quiz1": {
+    "title": "Pourquoi la Pobla de Mafumet a-t-elle été si importante pendant tant de siècles ?",
+    "option1": "À cause de sa position stratégique",
+    "option2": "Pour vendre du fromage",
+    "option3": "Parce qu’elle est à côté d’El Morell",
+    "option4": "Pour avoir accueilli la Coupe du Monde 2010"
+  },
+  "Volcano12Quiz2": {
+    "title": "Que firent certains habitants pendant la guerre civile espagnole pour sauver l’image de la Vierge de Lledó ?",
+    "option1": "Ils l’ont cachée pour éviter qu’elle soit brûlée",
+    "option2": "Ils l’ont reconstruite avec du bois neuf",
+    "option3": "Ils l’ont emportée à la cathédrale de Tarragone",
+    "option4": "Ils l’ont vendue pour récolter de l’argent pour le village"
+  },
+  "Volcano12Quiz3": {
+    "title": "Quelle usine a été construite il y a environ 60 ans à la Pobla de Mafumet, aidant à moderniser la ville ?",
+    "option1": "Une raffinerie de pétrole",
+    "option2": "Une fromagerie",
+    "option3": "Une usine automobile",
+    "option4": "Une usine textile"
+  },
+  "Mapp": {
+    "button1": "CARTE",
+    "button2": "LISTE",
+    "text1": "Commune",
+    "text2": "Centre d'interprétation du Romantisme",
+    "text3": "Tour Blava - Espace Guinovart"
+  },
+  "QuizPage": {
+    "try_again": "Essayer à nouveau",
+    "finding_1": "PREMIER ARRÊT - LE SECRET DES VOIES ROMAINES",
+    "finding_2": "DEUXIÈME ARRÊT - LE SECRET DES CULTURES ROMAINES",
+    "finding_3": "TROISIÈME ARRÊT - LE SECRET DE LA TECHNOLOGIE ROMAINE",
+    "finding_4": "QUATRIÈME ARRÊT - LE SECRET DE LA GUÀRDIA DE MAHOMET",
+    "finding_5": "CINQUIÈME ARRÊT - LE SECRET DE LA MAIN PERCÉE",
+    "finding_6": "SIXIÈME ARRÊT - LE SECRET DES 13 NOMS DE LA POBLA DE MAFUMET",
+    "finding_7": "SEPTIÈME ARRÊT - LE SECRET DE LA REPOPULATION CHRÉTIENNE",
+    "finding_8": "HUITIÈME ARRÊT - LE SECRET DES SEIGNEURS FÉODAUX DE LA POBLA",
+    "finding_9": "NEUVIÈME ARRÊT - LE SECRET DE LA VIE QUOTIDIENNE À LA POBLA",
+    "finding_10": "DIXIÈME ARRÊT - LE SECRET D’UNE NOUVELLE ÉPOQUE",
+    "finding_11": "ONZIÈME ARRÊT - LE SECRET DE L’INCENDIE DANS L’ÉGLISE",
+    "finding_12": "DOUZIÈME ARRÊT - LE SECRET DE NOTRE POBLA DE MAFUMET",
+    "description": "Retour à l'exploration de nouveaux points d'intérêt! Découvrez et interagissez avec chaque point pour débloquer des récompenses, gagner des points et progresser. Plus vous explorez, plus vous progressez.",
+    "button": "Continuez le jeu"
+  },
+  "intro": {
+    "title1": "Bienvenue dans le jeu « Les chemins secrets de la Pobla de Mafumet ». Écoutez Mafu, une tortue magique qui vit à la Pobla de Mafumet depuis 2000 ans.",
+    "text1": "Bienvenue dans le jeu “Canyelles et l’histoire de la météorite.” Écoute Roc, un fragment de la météorite tombée à Canyelles il y a presque deux cents ans.",
+    "title2": "Bienvenue dans le jeu « Les chemins secrets de la Pobla de Mafumet ». Écoutez Mafu, une tortue magique qui vit à la Pobla de Mafumet depuis 2000 ans.",
+    "text2": "Écoutez Roc et trouvez les fragments de météorite. Touchez-les pour les ramasser.",
+    "title3": "Cette expérience de réalité augmentée nécessite l'accès à l'appareil photo et aux capteurs de mouvement de votre appareil.",
+    "text3": "Écoutez Roc et lancez les roches volcaniques dans les volcans.",
+    "button1": "Passer l'introduction",
+    "button2": "Continuer",
+    "button3": "Expérience AR"
+  },
+  "CoinMap": {
+    "congratulation": "Félicitations !",
+    "text": "Vous êtes arrivé à destination avec succès. Vous êtes maintenant à la bonne distance pour vivre l’expérience de réalité augmentée.",
+    "button": "Suivant"
+  },
+  "gameText": {
+    "place": "Placer l'Avatar",
+    "audioPermission": "Autorisation audio requise",
+    "cameraPermission": "Autorisation caméra requise",
+    "audioAllow": "Autoriser l'audio",
+    "Cancel": "Annuler",
+    "enableRotation": "Activer la rotation",
+    "try_again": "Réessayer"
+  },
+  "privacyPolicy": {
+    "title": "Politique de Confidentialité",
+    "sections": {
+      "responsible": {
+        "title": "Responsable du traitement",
+        "content": "En conformité avec le Règlement (UE) 2016/679 (RGPD) et la Loi Organique 3/2018 (LOPDGDD), il est porté à votre connaissance que les données personnelles fournies via l'application seront traitées sous la responsabilité de l'entité suivante :",
+        "items": [
+          "Nom commercial : Som Experiències",
+          "Nom fiscal : Albert Mozó Fàbregas",
+          "NIF : 45790766C",
+          "Adresse : Rambla Lluís Companys, 2, 2n 5a, 08800 Vilanova i la Geltrú",
+          "Nom et NIF du contact : Albert Mozó Fàbregas – NIF 45790766C",
+          "Téléphone : 685492584",
+          "Email : info@somexperiencies.cat"
+        ]
+      },
+      "dataCollected": {
+        "title": "Données collectées",
+        "content": "L'application peut collecter les données personnelles suivantes auprès des utilisateurs :",
+        "items": [
+          "Via l'inscription avec Google ou Microsoft : nom, prénom et adresse e-mail.",
+          "Via un formulaire personnalisé : nom, prénom, adresse e-mail, téléphone et lieu de provenance.",
+          "Via les permissions de l'appareil : géolocalisation (pour débloquer les points de jeu) et accès à la caméra (pour les fonctionnalités de réalité augmentée)."
+        ]
+      },
+      "purpose": {
+        "title": "Finalité du traitement",
+        "content": "Les données sont traitées aux fins suivantes :",
+        "items": [
+          "Permettre l'accès et l'utilisation de l'application et de ses contenus interactifs.",
+          "Garantir l'activation des points de jeu et la personnalisation de l'expérience.",
+          "Maintenir la sécurité et améliorer les services offerts.",
+          "Communiquer des nouveautés ou des informations liées à l'application, avec le consentement préalable de l'utilisateur."
+        ]
+      },
+      "legalBasis": {
+        "title": "Base légale",
+        "content": "La base juridique du traitement est le consentement de l'utilisateur, accordé lors de l'inscription et de l'acceptation de cette politique de confidentialité."
+      },
+      "dataRetention": {
+        "title": "Conservation des données",
+        "content": "Les données seront conservées uniquement pendant la durée nécessaire à la prestation du service et, en tout état de cause, pendant les délais légalement établis. Les données de géolocalisation et les images de la caméra ne sont pas sauvegardées au-delà de l'usage temporaire sur l'appareil."
+      },
+      "dataSharing": {
+        "title": "Communication des données à des tiers",
+        "content": "Les données ne seront pas cédées à des tiers, sauf en cas d'obligation légale ou de demande d'une autorité compétente."
+      },
+      "userRights": {
+        "title": "Droits des utilisateurs",
+        "content": "Les utilisateurs peuvent exercer leurs droits d'accès, de rectification, de suppression, d'opposition, de limitation et de portabilité en contactant le responsable à l'adresse info@somexperiencies.cat ou par courrier postal à l'adresse indiquée ci-dessus."
+      },
+      "effect": {
+        "title": "Effet",
+        "content": "L'utilisation de l'application implique l'acceptation expresse et pleine de la présente politique de confidentialité. Cette politique entre en vigueur à partir de sa date de publication et restera valable jusqu'à ce qu'elle soit modifiée ou mise à jour dans cette même application."
+      }
+    }
+  }
+}
