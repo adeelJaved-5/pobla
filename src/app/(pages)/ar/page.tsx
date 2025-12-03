@@ -6,13 +6,12 @@ import Loading from "@/components/layout/Loading";
 import api from "@/lib/axios";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
+import { getPOICoinConfig, getPOITotalCoins } from "@/utils/location";
 
 const AScene = (props: any) => React.createElement("a-scene", props);
 const ACamera = (props: any) => React.createElement("a-camera", props);
 const AEntity = (props: any) => React.createElement("a-entity", props);
 
-// const poiRequirements = [10, 12, 14, 16, 18, 20, 22, 24, 14];
-const poiRequirements = [15, 20, 0, 35, 15, 0, 45, 50, 0, 55, 17, 0];
 
 const Page = () => {
   const { user, refreshUser } = useUser();
@@ -23,11 +22,12 @@ const Page = () => {
   const [scriptsLoaded, setScriptsLoaded] = useState(false);
   const [permissionGranted, setPermissionGranted] = useState(false);
   const [points, setPoints] = useState(0);
-  const [onLoadPoints, setOnLoadPoints] = useState<number | null>(null);
-  const [rocksCollectedInCurrentPOI, setRocksCollectedInCurrentPOI] =
-    useState(0);
-  const [poiPoints, setPoiPoints] = useState(0); // Track points for current POI only
+  const [onLoadPoints, setOnLoadPoints] = useState(0);
   const [floatingRocks, setFloatingRocks] = useState<any[]>([]);
+  const [collectedCoins, setCollectedCoins] = useState<number[]>([]);
+  const [coinConfig, setCoinConfig] = useState<number[] | null>(null);
+  const collectedCoinsRef = useRef<number[]>([]);
+  const spawnedCoinIndexRef = useRef(0);
 
   const sceneRef = useRef<any>(null);
   const locale = useLocale();
@@ -41,10 +41,27 @@ const Page = () => {
   const hasAutoPlayed = useRef(false);
   const hasInitialized = useRef(false);
   const navigationInProgress = useRef(false);
-
+  const dracoInitializedRef = useRef(false);
+  
   const rocksInitializedRef = useRef(false);
 
   const MAX_VISIBLE_ROCKS = 10;
+
+  // Initialize coin configuration based on current POI
+  useEffect(() => {
+    if (!user) return;
+    const currentPOI = user.POIsCompleted ?? 0;
+    const config = getPOICoinConfig(currentPOI);
+    setCoinConfig(config);
+    setCollectedCoins([]);
+    collectedCoinsRef.current = [];
+    spawnedCoinIndexRef.current = 0;
+    
+    // If this POI doesn't have coins (quiz POI), redirect
+    if (config === null) {
+      router.push(`/volcano/${currentPOI + 1}`);
+    }
+  }, [user, router]);
 
   useEffect(() => {
     if (hasInitialized.current) return;
@@ -70,7 +87,7 @@ const Page = () => {
       if (backgroundAudioRef.current) {
         backgroundAudioRef.current.loop = true;
         backgroundAudioRef.current.volume = 0.08;
-        backgroundAudioRef.current.play().catch(() => {});
+        backgroundAudioRef.current.play().catch(() => { });
       }
     }, 5000);
     return () => clearTimeout(timer);
@@ -79,57 +96,6 @@ const Page = () => {
   useEffect(() => {
     if (!onLoadPoints && user?.points) setOnLoadPoints(user.points);
   }, [user?.points]);
-
-  // Reset rock count and points when entering a new POI
-  useEffect(() => {
-    setRocksCollectedInCurrentPOI(0);
-    setPoiPoints(0);
-    setPoints(0); // Reset points for the new POI
-  }, [user?.POIsCompleted]);
-
-  // Auto-complete POIs that don't require the game (indices 2, 5, 8, 11 which are POIs 3, 6, 9, 12)
-  useEffect(() => {
-    if (!user || navigationInProgress.current) return;
-
-    const quizOnlyPOIs = [2, 5, 8, 11];
-    if (quizOnlyPOIs.includes(user.POIsCompleted)) {
-      navigationInProgress.current = true;
-      router.push(`/volcano/${user.POIsCompleted + 1}`);
-    }
-  }, [user?.POIsCompleted, router]);
-
-  // Auto-complete POI6 (index 5) - no game required
-  useEffect(() => {
-    if (user && user.POIsCompleted === 5 && !navigationInProgress.current) {
-      // POI6 requires 0 points, so auto-complete immediately
-      navigationInProgress.current = true;
-      setTimeout(() => {
-        router.push(`/volcano/${user.POIsCompleted + 1}`);
-      }, 1000);
-    }
-  }, [user?.POIsCompleted, router]);
-
-  // Auto-complete POI9 (index 8) - no game required
-  useEffect(() => {
-    if (user && user.POIsCompleted === 8 && !navigationInProgress.current) {
-      // POI9 requires 0 points, so auto-complete immediately
-      navigationInProgress.current = true;
-      setTimeout(() => {
-        router.push(`/volcano/${user.POIsCompleted + 1}`);
-      }, 1000);
-    }
-  }, [user?.POIsCompleted, router]);
-
-  // Auto-complete POI12 (index 11) - game end
-  useEffect(() => {
-    if (user && user.POIsCompleted === 11 && !navigationInProgress.current) {
-      // POI12 requires 0 points, so auto-complete immediately (game end)
-      navigationInProgress.current = true;
-      setTimeout(() => {
-        router.push(`/volcano/${user.POIsCompleted + 1}`);
-      }, 1000);
-    }
-  }, [user?.POIsCompleted, router]);
 
   // Optimized script loading - only run once
   useEffect(() => {
@@ -166,6 +132,38 @@ const Page = () => {
         document.head.appendChild(s);
       });
 
+    const setupDracoLoader = () => {
+      if (
+        !(window as any).AFRAME ||
+        !(window as any).THREE ||
+        dracoInitializedRef.current
+      )
+        return;
+      const AFRAME = (window as any).AFRAME;
+      const THREE = (window as any).THREE;
+      try {
+        const dracoLoader = new THREE.DRACOLoader();
+        dracoLoader.setDecoderPath(
+          "https://www.gstatic.com/draco/versioned/decoders/1.5.6/"
+        );
+        dracoLoader.preload();
+        if (AFRAME.components["gltf-model"]) {
+          const originalUpdate =
+            AFRAME.components["gltf-model"].Component.prototype.update;
+          AFRAME.components["gltf-model"].Component.prototype.update =
+            function (oldData: any) {
+              if (!this.loader) this.loader = new THREE.GLTFLoader();
+              if (!this.loader.dracoLoader)
+                this.loader.setDRACOLoader(dracoLoader);
+              if (originalUpdate) return originalUpdate.call(this, oldData);
+            };
+        }
+        dracoInitializedRef.current = true;
+      } catch {
+        /* ignore */
+      }
+    };
+
     const loadAll = async () => {
       try {
         if (!(window as any).AFRAME) {
@@ -175,12 +173,63 @@ const Page = () => {
           );
         }
 
-        if (!(window as any).AFRAME.components["particle-system"]) {
+        if (!(window as any).AFRAME.components['particle-system']) {
           await loadScript(
             "https://cdn.jsdelivr.net/npm/aframe-particle-system-component@1.1.3/dist/aframe-particle-system-component.min.js"
           );
         }
 
+        // Wait for THREE to be available (A-Frame includes THREE)
+        await new Promise<void>((resolve) => {
+          const check = (): void => {
+            if ((window as any).THREE) {
+              resolve();
+            } else {
+              setTimeout(check, 50);
+            }
+          };
+          check();
+        });
+
+        // Load DRACOLoader if not already available
+        if (!(window as any).THREE?.DRACOLoader) {
+          await loadScript(
+            "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"
+          );
+        }
+
+        setupDracoLoader();
+        
+        // Register component to brighten GLB materials
+        if ((window as any).AFRAME && !(window as any).AFRAME.components['brighten-material']) {
+          (window as any).AFRAME.registerComponent('brighten-material', {
+            init: function() {
+              this.el.addEventListener('model-loaded', () => {
+                const model = this.el.getObject3D('mesh');
+                if (model) {
+                  model.traverse((node: any) => {
+                    if (node.isMesh && node.material) {
+                      if (Array.isArray(node.material)) {
+                        node.material.forEach((mat: any) => {
+                          if (mat) {
+                            mat.emissive = new (window as any).THREE.Color(0xffffff);
+                            mat.emissiveIntensity = 0.1;
+                            mat.needsUpdate = true;
+                          }
+                        });
+                      } else {
+                        node.material.emissive = new (window as any).THREE.Color(0xffffff);
+                        node.material.emissiveIntensity = 0.1;
+                        node.material.needsUpdate = true;
+                      }
+                    }
+                  });
+                }
+              });
+            }
+          });
+        }
+        
         setScriptsLoaded(true);
         hasInitialized.current = true;
       } catch (e) {
@@ -190,8 +239,9 @@ const Page = () => {
     };
 
     loadAll();
-
-    return () => {};
+    
+    return () => {
+    };
   }, [permissionGranted]);
 
   useEffect(() => {
@@ -199,20 +249,18 @@ const Page = () => {
   }, [floatingRocks]);
 
   useEffect(() => {
-    if (
-      !scriptsLoaded ||
-      rocksInitializedRef.current ||
-      floatingRocks.length > 0
-    )
-      return;
+    collectedCoinsRef.current = collectedCoins;
+  }, [collectedCoins]);
+
+  useEffect(() => {
+    if (!scriptsLoaded || rocksInitializedRef.current || floatingRocks.length > 0 || !coinConfig) return;
 
     spawnInitialRocks();
     rocksInitializedRef.current = true;
-  }, [scriptsLoaded]);
+  }, [scriptsLoaded, coinConfig]);
 
   useEffect(() => {
-    if (!scriptsLoaded || !sceneRef.current || floatingRocks.length === 0)
-      return;
+    if (!scriptsLoaded || !sceneRef.current || floatingRocks.length === 0) return;
 
     const sceneEl: any = sceneRef.current;
 
@@ -234,10 +282,10 @@ const Page = () => {
         const y =
           rock.initialY +
           Math.sin(t * (1 + (rock.angularSpeed ?? 0.6)) + (rock.phase ?? 0)) *
-            rock.floatingRange;
+          rock.floatingRange;
 
         el.object3D.position.set(x, y, z);
-        el.object3D.rotation.y += 0.01 + (rock.angularSpeed ?? 0.6) * 0.002;
+        el.object3D.rotation.y += 0.005 + (rock.angularSpeed ?? 0.3) * 0.001;
       });
       rafRef.current = requestAnimationFrame(loop);
     };
@@ -259,13 +307,13 @@ const Page = () => {
         rafRef.current = null;
       }
     };
-  }, [scriptsLoaded]);
+  }, [scriptsLoaded]); 
 
   useEffect(() => {
     if (!scriptsLoaded || !sceneRef.current) return;
 
     const scene = sceneRef.current;
-
+    
     eventListenersRef.current.forEach((listeners, rockId) => {
       const rockEl = scene.querySelector(`#${rockId}`);
       if (rockEl) {
@@ -287,14 +335,14 @@ const Page = () => {
         }
       }
     });
-  }, [scriptsLoaded, floatingRocks]);
+  }, [scriptsLoaded, floatingRocks]); 
 
   useEffect(() => {
     if (user?.POIsCompleted >= 0 && !hasAutoPlayed.current) {
       const handleFirstInteraction = () => {
-        backgroundAudioRef.current?.play().catch(() => {});
+        backgroundAudioRef.current?.play().catch(() => { });
         if (explosionAudioRef.current) {
-          explosionAudioRef.current.play().catch(() => {});
+          explosionAudioRef.current.play().catch(() => { });
           explosionAudioRef.current.pause();
           explosionAudioRef.current.currentTime = 0;
         }
@@ -322,7 +370,7 @@ const Page = () => {
     }
   };
 
-  const spawnRock = (id?: string) => {
+  const spawnRock = (coinValue?: number, id?: string) => {
     const angle = Math.random() * Math.PI * 2;
     const radius = Math.random() * 8 + 3;
     const height = Math.random() * 3 + 1;
@@ -335,7 +383,7 @@ const Page = () => {
     return {
       id: safeId,
       position: { x: Math.cos(angle) * radius, y: height, z: Math.sin(angle) },
-      scale: Math.random() * 0.005 + 0.5,
+      scale: Math.random() * 0.05 + 0.3,
       rotation: {
         x: Math.random() * Math.PI,
         y: Math.random() * Math.PI,
@@ -347,94 +395,92 @@ const Page = () => {
       disappearing: false,
       orbitRadius: radius,
       baseAngle: angle,
-      angularSpeed: Math.random() * 0.8 + 0.3,
+      angularSpeed: Math.random() * 0.4 + 0.15,
       phase: Math.random() * Math.PI * 2,
-      spinDuration: Math.floor(Math.random() * 5000) + 5000,
+      spinDuration: Math.floor(Math.random() * 10000) + 15000,
       spinDelay: Math.random() * 2000,
-      orbitDuration: Math.floor(Math.random() * 10000) + 10000,
+      orbitDuration: Math.floor(Math.random() * 20000) + 25000,
       orbitDelay: Math.random() * 3000,
       orbitTarget: {
         x: (Math.random() - 0.5) * 10,
         y: Math.random() * 3 + 1,
         z: (Math.random() - 0.5) * 10,
       },
+      coinValue: coinValue ?? 1,
     };
   };
 
   const spawnInitialRocks = () => {
-    const count = MAX_VISIBLE_ROCKS;
-    setFloatingRocks(Array.from({ length: count }, () => spawnRock()));
+    if (!coinConfig) return;
+    
+    // Create rocks based on coin configuration
+    // Spawn initial batch of coins (up to MAX_VISIBLE_ROCKS or total coins, whichever is smaller)
+    const rocks: any[] = [];
+    const initialCount = Math.min(MAX_VISIBLE_ROCKS, coinConfig.length);
+    
+    for (let i = 0; i < initialCount; i++) {
+      const coinValue = coinConfig[i];
+      rocks.push(spawnRock(coinValue));
+    }
+    
+    setFloatingRocks(rocks);
+    spawnedCoinIndexRef.current = initialCount;
   };
 
   const handleRockTap = (rockId: string) => {
-    if (navigationInProgress.current) return;
-
+    if (navigationInProgress.current || !coinConfig) return;
+    
     const sceneEl = sceneRef.current;
     if (!sceneEl) return;
-
+    
     const rockEl = sceneEl.querySelector(`#${rockId}`);
     if (!rockEl) return;
 
+    // Find the rock to get its coin value
+    const rock = floatingRocks.find((r) => r.id === rockId);
+    if (!rock) return;
+
+    const coinValue = rock.coinValue || 1;
+
     if (explosionAudioRef.current) {
       explosionAudioRef.current.currentTime = 0;
-      explosionAudioRef.current.play().catch(() => {});
+      explosionAudioRef.current.play().catch(() => { });
     }
-
-    setRocksCollectedInCurrentPOI((rockCount) => rockCount + 1);
 
     const rockPos = rockEl.getAttribute("position");
 
     createExplosionEffects(sceneEl, rockPos);
 
+    // Update collected coins
+    const newCollectedCoins = [...collectedCoinsRef.current, coinValue];
+    setCollectedCoins(newCollectedCoins);
+
+    // Calculate totals
+    const totalCollected = newCollectedCoins.reduce((sum, val) => sum + val, 0);
+    const totalNeeded = coinConfig.reduce((sum, val) => sum + val, 0);
+
     setFloatingRocks((prev) => {
       const updated = prev.filter((rock) => rock.id !== rockId);
-      if (updated.length < MAX_VISIBLE_ROCKS) {
-        updated.push(spawnRock());
+      
+      // If we haven't collected all coins and haven't spawned all coins, spawn a new one
+      if (totalCollected < totalNeeded && spawnedCoinIndexRef.current < coinConfig.length && updated.length < MAX_VISIBLE_ROCKS) {
+        const nextCoinValue = coinConfig[spawnedCoinIndexRef.current];
+        updated.push(spawnRock(nextCoinValue));
+        spawnedCoinIndexRef.current += 1;
       }
+      
       return updated;
     });
 
     setPoints((prev) => {
-      // Calculate points based on current rock count and POI
-      let pointsPerRock = 1;
-      const currentRockCount = rocksCollectedInCurrentPOI + 1;
-
-      if (POICompleted === 0) {
-        pointsPerRock = 3;
-      } else if (POICompleted === 1) {
-        pointsPerRock = 4;
-      } else if (POICompleted === 3) {
-        pointsPerRock = 5;
-      } else if (POICompleted === 4) {
-        pointsPerRock = 3;
-      } else if (POICompleted === 6) {
-        pointsPerRock = currentRockCount <= 6 ? 6 : 9;
-      } else if (POICompleted === 7) {
-        pointsPerRock = currentRockCount <= 6 ? 7 : 8;
-      } else if (POICompleted === 9) {
-        pointsPerRock = currentRockCount <= 6 ? 8 : 7;
-      } else if (POICompleted === 10) {
-        pointsPerRock = currentRockCount <= 3 ? 3 : 4;
-      }
-
-      const newPoints = prev + pointsPerRock;
+      const newPoints = prev + coinValue;
       updatePoints(newPoints);
-
-      // const poiReq = poiRequirements[POICompleted];
-      // if (poiReq && newPoints >= poiReq) {
-      //   navigationInProgress.current = true;
-      //   router.push(`/volcano/${(user?.POIsCompleted ?? 0) + 1}`);
-      // }
-      // Use POI-specific points for completion check
-      setPoiPoints((poiPrev) => {
-        const newPoiPoints = poiPrev + pointsPerRock;
-        const poiReq = poiRequirements[POICompleted];
-        if (poiReq && newPoiPoints >= poiReq) {
-          navigationInProgress.current = true;
-          router.push(`/volcano/${(user?.POIsCompleted ?? 0) + 1}`);
-        }
-        return newPoiPoints;
-      });
+      
+      // Check if all coins are collected
+      if (totalCollected >= totalNeeded) {
+        navigationInProgress.current = true;
+        router.push(`/volcano/${(user?.POIsCompleted ?? 0) + 1}`);
+      }
       return newPoints;
     });
   };
@@ -447,9 +493,7 @@ const Page = () => {
 
       particle.setAttribute(
         "geometry",
-        `primitive: ${shape}; radius: 0.08; detail: ${Math.floor(
-          Math.random() * 2
-        )}`
+        `primitive: ${shape}; radius: 0.08; detail: ${Math.floor(Math.random() * 2)}`
       );
       particle.setAttribute(
         "material",
@@ -457,9 +501,7 @@ const Page = () => {
       );
       particle.setAttribute(
         "position",
-        `${rockPos.x + (Math.random() - 0.5) * 0.5} ${rockPos.y} ${
-          rockPos.z + (Math.random() - 0.5) * 0.5
-        }`
+        `${rockPos.x + (Math.random() - 0.5) * 0.5} ${rockPos.y} ${rockPos.z + (Math.random() - 0.5) * 0.5}`
       );
       particle.object3D.rotation.set(
         Math.random() * Math.PI,
@@ -468,11 +510,7 @@ const Page = () => {
       );
       particle.setAttribute(
         "animation",
-        `property: position; to: ${rockPos.x + (Math.random() - 0.5) * 1} ${
-          rockPos.y + Math.random() * 2
-        } ${
-          rockPos.z + (Math.random() - 0.5) * 1
-        }; dur: 800; easing: easeOutCubic`
+        `property: position; to: ${rockPos.x + (Math.random() - 0.5) * 1} ${rockPos.y + Math.random() * 2} ${rockPos.z + (Math.random() - 0.5) * 1}; dur: 800; easing: easeOutCubic`
       );
       particle.setAttribute(
         "animation__fade",
@@ -520,11 +558,8 @@ const Page = () => {
         <button
           onClick={async () => {
             try {
-              const stream = await navigator.mediaDevices.getUserMedia({
-                video: true,
-                audio: true,
-              });
-              stream.getTracks().forEach((track) => track.stop());
+              const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+              stream.getTracks().forEach(track => track.stop());
               setPermissionGranted(true);
             } catch {
               setPermissionGranted(false);
@@ -540,6 +575,11 @@ const Page = () => {
 
   if (!scriptsLoaded) return <Loading />;
 
+  // If this POI doesn't have coins, don't show AR page
+  if (coinConfig === null) {
+    return <Loading />;
+  }
+
   return (
     <div style={{ width: "100%", height: "100vh", position: "relative" }}>
       <style jsx>{`
@@ -549,20 +589,13 @@ const Page = () => {
         .floating-rock.disappearing {
           animation: rockDisappear 1.5s ease-in forwards;
         }
-        a-cursor,
-        .a-canvas .a-cursor {
+        a-cursor, .a-canvas .a-cursor {
           display: none !important;
           visibility: hidden !important;
         }
         @keyframes particleRise {
-          0% {
-            transform: translate(0, 0) scale(1);
-            opacity: 1;
-          }
-          100% {
-            transform: translate(var(--x), var(--y)) scale(0.2);
-            opacity: 0;
-          }
+          0% { transform: translate(0,0) scale(1); opacity: 1; }
+          100% { transform: translate(var(--x), var(--y)) scale(0.2); opacity: 0; }
         }
         .particle {
           position: absolute;
@@ -609,7 +642,7 @@ const Page = () => {
       </div>
 
       <AScene
-        key="ar-scene"
+        key="ar-scene" 
         ref={sceneRef}
         vr-mode-ui="enabled: false"
         embedded
@@ -629,22 +662,21 @@ const Page = () => {
           listener
           rotation-reader
           look-controls="reverseMouseDrag:true; touchEnabled: false;"
-          cursor="fuse: false; rayOrigin: mouse; visible: false;"
+          cursor="fuse: false; rayOrigin: mouse;"
           raycaster="objects: .floating-rock; showLine: false"
         />
 
         {floatingRocks.map((rock) => (
           <AEntity
-            key={rock.id}
+            key={rock.id} 
             id={rock.id}
-            gltf-model="url(/meteorit.glb)"
+            gltf-model="url(/models/coin_to_catch.glb)"
+            brighten-material
             position={`${rock.position.x} ${rock.position.y} ${rock.position.z}`}
             scale={`${rock.scale} ${rock.scale} ${rock.scale}`}
             rotation={`${rock.rotation.x} ${rock.rotation.y} ${rock.rotation.z}`}
             visible={rock.visible && !rock.disappearing}
-            className={`floating-rock ${
-              rock.disappearing ? "disappearing" : ""
-            }`}
+            className={`floating-rock ${rock.disappearing ? "disappearing" : ""}`}
             animation__spin={`
               property: rotation;
               to: ${Math.random() > 0.5 ? "0 360 0" : "360 0 0"};
@@ -668,5 +700,6 @@ const Page = () => {
     </div>
   );
 };
+
 
 export default Page;

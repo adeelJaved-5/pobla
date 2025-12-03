@@ -34,7 +34,7 @@ const CompletePopup = ({ handleClose }: { handleClose: () => void }) => {
         <img
           src="/intro.gif"
           alt="Intro Gif"
-          className="w-[150px] rounded-lg"
+          className="w-[230px] rounded-lg"
         />
       </div>
     </div>
