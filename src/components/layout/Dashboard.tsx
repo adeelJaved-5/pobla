@@ -54,9 +54,13 @@ const Dashboard = () => {
       const lastSeenMapPOIsStr = localStorage.getItem("lastSeenMapPOIs");
       const lastSeenAmicsPOIsStr = localStorage.getItem("lastSeenAmicsPOIs");
 
-      const lastSeenMapPOIs = lastSeenMapPOIsStr ? parseInt(lastSeenMapPOIsStr) : null;
-      const lastSeenAmicsPOIs = lastSeenAmicsPOIsStr ? parseInt(lastSeenAmicsPOIsStr) : null;
-      console.log(lastSeenAmicsPOIs, lastSeenMapPOIsStr)
+      const lastSeenMapPOIs = lastSeenMapPOIsStr
+        ? parseInt(lastSeenMapPOIsStr)
+        : null;
+      const lastSeenAmicsPOIs = lastSeenAmicsPOIsStr
+        ? parseInt(lastSeenAmicsPOIsStr)
+        : null;
+      console.log(lastSeenAmicsPOIs, lastSeenMapPOIsStr);
 
       if (lastSeenMapPOIs === null || currentPOIs > lastSeenMapPOIs) {
         setShowMapNotification(true);
@@ -115,7 +119,7 @@ const Dashboard = () => {
       localStorage.setItem("lastSeenAmicsPOIs", user.POIsCompleted.toString());
       setShowAmicsNotification(false);
     }
-    router.push("/amics");  
+    router.push("/amics");
   };
 
   if (loading) return <Welcome />;
@@ -144,7 +148,7 @@ const Dashboard = () => {
           }}
         />
       )}
-      <div className="pb-10 gradient-bg text-lightblack h-[85vh]" >
+      <div className="pb-10 gradient-bg text-lightblack h-[85vh]">
         <div className="">
           <Image
             src={Logo}
@@ -169,7 +173,7 @@ const Dashboard = () => {
           </Card>
           <Card
             onClick={() => {
-              router.push("/progres");
+              setShowMorePopup(true);
             }}
           >
             <Image
@@ -203,7 +207,7 @@ const Dashboard = () => {
         <div className="flex justify-between mt-[25px] px-6 gap-4">
           <Card
             onClick={() => {
-              setShowMorePopup(true);
+              router.push("/progres");
             }}
           >
             <Image
@@ -217,7 +221,7 @@ const Dashboard = () => {
           </Card>
           <Card
             onClick={() => {
-              router.push("/faqs");
+              window.open("https://www.canyelles.cat", "_blank");
             }}
           >
             <Image src={Faq} alt="FAQs Icon" className="w-[48px] h-[48px]" />
@@ -227,7 +231,7 @@ const Dashboard = () => {
           </Card>
           <Card
             onClick={() => {
-              window.open("https://www.canyelles.cat", "_blank");
+              router.push("/faqs");
             }}
           >
             <Image
