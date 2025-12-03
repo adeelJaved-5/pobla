@@ -34,7 +34,7 @@ const Page = () => {
   const backgroundAudioRef = useRef<HTMLAudioElement>(null);
   const explosionAudioRef = useRef<HTMLAudioElement>(null);
   const eventListenersRef = useRef<
-    Map<string, { click: () => void; touchstart: () => void }>
+    Map<string, { click: (e: Event) => void; touchstart: (e: Event) => void }>
   >(new Map());
   const floatingRocksRef = useRef<any[]>([]);
   const rafRef = useRef<number | null>(null);
@@ -269,7 +269,7 @@ const Page = () => {
     const loop = (time: number) => {
       const t = time * 0.001;
       floatingRocksRef.current.forEach((rock) => {
-        if (!rock || rock.visible === false) return;
+        if (!rock || rock.visible === false || rock.disappearing) return;
         const el = sceneEl.querySelector(`#${rock.id}`);
         if (!el || !el.object3D) return;
 
@@ -314,27 +314,42 @@ const Page = () => {
 
     const scene = sceneRef.current;
     
+    // Clean up old listeners
     eventListenersRef.current.forEach((listeners, rockId) => {
       const rockEl = scene.querySelector(`#${rockId}`);
       if (rockEl) {
-        rockEl.removeEventListener("click", listeners.click);
-        rockEl.removeEventListener("touchstart", listeners.touchstart);
+        try {
+          rockEl.removeEventListener("click", listeners.click);
+          rockEl.removeEventListener("touchstart", listeners.touchstart);
+        } catch (e) {
+          // Element might be removed, ignore
+        }
       }
     });
     eventListenersRef.current.clear();
 
-    floatingRocks.forEach((rock) => {
-      if (rock.visible && !rock.disappearing) {
-        const rockEl = scene.querySelector(`#${rock.id}`);
-        if (rockEl) {
-          const handleTap = () => handleRockTap(rock.id);
-          const listeners = { click: handleTap, touchstart: handleTap };
-          rockEl.addEventListener("click", handleTap);
-          rockEl.addEventListener("touchstart", handleTap);
-          eventListenersRef.current.set(rock.id, listeners);
+    // Add new listeners with a small delay to ensure DOM is ready
+    const timeoutId = setTimeout(() => {
+      floatingRocks.forEach((rock) => {
+        if (rock.visible && !rock.disappearing) {
+          const rockEl = scene.querySelector(`#${rock.id}`);
+          if (rockEl && !eventListenersRef.current.has(rock.id)) {
+            const handleTap = (e: Event) => {
+              e.stopPropagation();
+              handleRockTap(rock.id);
+            };
+            const listeners = { click: handleTap, touchstart: handleTap };
+            rockEl.addEventListener("click", handleTap, { passive: false });
+            rockEl.addEventListener("touchstart", handleTap, { passive: false });
+            eventListenersRef.current.set(rock.id, listeners);
+          }
         }
-      }
-    });
+      });
+    }, 50);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
   }, [scriptsLoaded, floatingRocks]); 
 
   useEffect(() => {
@@ -415,12 +430,13 @@ const Page = () => {
     
     // Create rocks based on coin configuration
     // Spawn initial batch of coins (up to MAX_VISIBLE_ROCKS or total coins, whichever is smaller)
+    // This ensures we show exactly the number of coins from the config
     const rocks: any[] = [];
     const initialCount = Math.min(MAX_VISIBLE_ROCKS, coinConfig.length);
     
     for (let i = 0; i < initialCount; i++) {
       const coinValue = coinConfig[i];
-      rocks.push(spawnRock(coinValue));
+      rocks.push(spawnRock(coinValue, `coin-${i}`));
     }
     
     setFloatingRocks(rocks);
@@ -436,9 +452,14 @@ const Page = () => {
     const rockEl = sceneEl.querySelector(`#${rockId}`);
     if (!rockEl) return;
 
-    // Find the rock to get its coin value
-    const rock = floatingRocks.find((r) => r.id === rockId);
-    if (!rock) return;
+    // Find the rock to get its coin value - use ref to get current state
+    const rock = floatingRocksRef.current.find((r) => r.id === rockId);
+    if (!rock || rock.disappearing) return;
+
+    // Mark rock as disappearing immediately to prevent double-tap
+    setFloatingRocks((prev) => 
+      prev.map((r) => r.id === rockId ? { ...r, disappearing: true } : r)
+    );
 
     const coinValue = rock.coinValue || 1;
 
@@ -451,6 +472,18 @@ const Page = () => {
 
     createExplosionEffects(sceneEl, rockPos);
 
+    // Remove event listeners immediately
+    const listeners = eventListenersRef.current.get(rockId);
+    if (listeners && rockEl) {
+      try {
+        rockEl.removeEventListener("click", listeners.click);
+        rockEl.removeEventListener("touchstart", listeners.touchstart);
+      } catch (e) {
+        // Ignore errors
+      }
+      eventListenersRef.current.delete(rockId);
+    }
+
     // Update collected coins
     const newCollectedCoins = [...collectedCoinsRef.current, coinValue];
     setCollectedCoins(newCollectedCoins);
@@ -459,13 +492,15 @@ const Page = () => {
     const totalCollected = newCollectedCoins.reduce((sum, val) => sum + val, 0);
     const totalNeeded = coinConfig.reduce((sum, val) => sum + val, 0);
 
+    // Remove rock and potentially spawn new one
     setFloatingRocks((prev) => {
       const updated = prev.filter((rock) => rock.id !== rockId);
       
       // If we haven't collected all coins and haven't spawned all coins, spawn a new one
+      // Only spawn if we haven't reached the total number of coins in the config
       if (totalCollected < totalNeeded && spawnedCoinIndexRef.current < coinConfig.length && updated.length < MAX_VISIBLE_ROCKS) {
         const nextCoinValue = coinConfig[spawnedCoinIndexRef.current];
-        updated.push(spawnRock(nextCoinValue));
+        updated.push(spawnRock(nextCoinValue, `coin-${spawnedCoinIndexRef.current}`));
         spawnedCoinIndexRef.current += 1;
       }
       
@@ -476,10 +511,14 @@ const Page = () => {
       const newPoints = prev + coinValue;
       updatePoints(newPoints);
       
-      // Check if all coins are collected
-      if (totalCollected >= totalNeeded) {
+      // Check if all coins are collected (total collected value >= total needed)
+      // Also check if we've collected the exact number of coins from the config
+      if (totalCollected >= totalNeeded && newCollectedCoins.length >= coinConfig.length) {
         navigationInProgress.current = true;
-        router.push(`/volcano/${(user?.POIsCompleted ?? 0) + 1}`);
+        // Small delay to ensure state updates complete before navigation
+        setTimeout(() => {
+          router.push(`/volcano/${(user?.POIsCompleted ?? 0) + 1}`);
+        }, 100);
       }
       return newPoints;
     });
@@ -684,15 +723,6 @@ const Page = () => {
               dur: ${rock.spinDuration};
               easing: linear;
               delay: ${rock.spinDelay};
-            `}
-            animation__orbit={`
-              property: position;
-              dir: alternate;
-              loop: true;
-              to: ${rock.orbitTarget.x} ${rock.orbitTarget.y} ${rock.orbitTarget.z};
-              dur: ${rock.orbitDuration};
-              easing: linear;
-              delay: ${rock.orbitDelay};
             `}
           />
         ))}

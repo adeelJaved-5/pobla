@@ -36,18 +36,19 @@ export const POIs: POI[] = [
 // Coin configuration for each POI (0-indexed)
 // Each array represents the coin values that should spawn
 // null means this POI doesn't have coins (quiz POIs)
+// The number of coins shown equals the array length
 export const POICoinConfig: (number[] | null)[] = [
-  [3, 3, 3, 3, 3], // POI1: 15 coins
-  [4, 4, 4, 4, 4], // POI2: 20 coins
+  [3, 3, 3, 3, 3], // POI1: 5 coins, total 15 (3+3+3+3+3=15)
+  [4, 4, 4, 4, 4], // POI2: 5 coins, total 20 (4+4+4+4+4=20)
   null, // POI3: Quiz POI, no coins
-  [5, 5, 5, 5, 5, 5, 5], // POI4: 35 coins
-  [3, 3, 3, 3, 3], // POI5: 15 coins
+  [5, 5, 5, 5, 5, 5, 5], // POI4: 7 coins, total 35 (5+5+5+5+5+5+5=35)
+  [3, 3, 3, 3, 3], // POI5: 5 coins, total 15 (3+3+3+3+3=15)
   null, // POI6: Quiz POI, no coins
-  [6, 6, 6, 6, 6, 6, 9], // POI7: 45 coins
-  [7, 7, 7, 7, 7, 7, 8], // POI8: 50 coins
+  [6, 6, 6, 6, 6, 6, 9], // POI7: 7 coins, total 45 (6+6+6+6+6+6+9=45)
+  [7, 7, 7, 7, 7, 7, 8], // POI8: 7 coins, total 50 (7+7+7+7+7+7+8=50)
   null, // POI9: Quiz POI, no coins
-  [8, 8, 8, 8, 8, 8, 7], // POI10: 55 coins
-  [3, 3, 3, 4, 4], // POI11: 17 coins
+  [8, 8, 8, 8, 8, 8, 7], // POI10: 7 coins, total 55 (8+8+8+8+8+8+7=55)
+  [3, 3, 3, 4, 4], // POI11: 5 coins, total 17 (3+3+3+4+4=17)
   null, // POI12: Quiz POI, no coins
 ];
 
