@@ -106,7 +106,7 @@ const Progress = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center bg-white h-[80vh]">
+    <div className="flex flex-col items-center justify-center bg-white h-[90vh]">
       <h1 className="text-[22px] font-semibold text-lightblack mt-10">
         {t("title1")} {user?.firstName}
       </h1>

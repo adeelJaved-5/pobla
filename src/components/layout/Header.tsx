@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import Logo from "@/assets/logo.png"
-import User from "@/assets/login.png";
+import Logo from "@/assets/logo.png";
+import User from "@/assets/icon_login.svg";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import Menu from "../ui/Menu";
@@ -40,7 +40,10 @@ const Header = () => {
         />
       </div>
 
-      <div className="flex items-end flex-col mt-2 w-[70px]" onClick={handleAuthClick}>
+      <div
+        className="flex items-end flex-col mt-2 w-[70px]"
+        onClick={handleAuthClick}
+      >
         <div className="flex flex-col justify-center items-center">
           <Image
             src={status === "authenticated" ? User : User}

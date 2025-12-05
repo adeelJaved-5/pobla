@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import Map from "@/assets/map.png";
+import Map from "@/assets/mapa.svg";
 import CustomButton from "../ui/Button";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
@@ -54,7 +54,7 @@ const Maps = () => {
   const destinationTitle = stopTitle[user?.POIsCompleted];
 
   return (
-    <div className="pb-5 px-3.5 bg-white min-h-[80vh]">
+    <div className="pb-20 px-3.5 bg-white min-h-[80vh]">
       <div className="flex justify-center">
         <Image src={Map} alt="Map" className="mt-[88px] w-[192px] h-[192px]" />
       </div>

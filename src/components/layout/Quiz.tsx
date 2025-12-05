@@ -76,11 +76,9 @@ const Quiz = () => {
 
     if (!isQuizPOI && POICompleted >= volcanoId) {
       router.push("/");
-    }
-    else if (isQuizPOI && POICompleted >= volcanoId) {
+    } else if (isQuizPOI && POICompleted >= volcanoId) {
       router.push("/");
-    }
-    else if (!isQuizPOI) {
+    } else if (!isQuizPOI) {
       setShowFinding(true);
     }
   }, [volcanoId, router, user, isQuizPOI]);
@@ -302,13 +300,15 @@ const Quiz = () => {
 
   if (showFinding) {
     return (
-      <div className="flex flex-col justify-center px-5 h-[85vh] items-center">
+      <div className="flex flex-col justify-center px-5 h-[90vh] items-center">
         {findingImages[volcanoId - 1] && (
           <div
-            className="rounded-2xl h-[362px] w-[362px] mb-4 flex justify-center items-center"
+            className="rounded-2xl h-[362px] w-[362px] mb-4 flex justify-center items-center bg-blue"
+
             style={{
               backgroundImage: "url(/bg.svg)",
               backgroundSize: "cover",
+              backgroundColor: "bg-gradient-to-b from-[#123C62] to-[#257AC8]"
             }}
           >
             <img
@@ -328,7 +328,7 @@ const Quiz = () => {
 
   if (quizCompleted) {
     return (
-      <div className="flex flex-col justify-center px-5 h-[85vh] items-center">
+      <div className="flex flex-col justify-center px-5 h-[90vh] items-center">
         {findingImages[volcanoId - 1] && (
           <div
             className="rounded-2xl h-[362px] w-[362px] mb-4 flex justify-center items-center"
@@ -359,13 +359,13 @@ const Quiz = () => {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center pb-[95px] bg-white h-[80vh]">
-      <div className="bg-white w-full flex h-[242px] items-center justify-center">
+    <div className="flex flex-col justify-center items-center pb-[95px] bg-white h-[100vh]">
+      <div className="bg-white w-full flex h-[242px] mt-[60px] items-center justify-center">
         <h1 className="text-4xl font-bold text-blue text-center px-[38px]">
           {selectedQuestion?.title}
         </h1>
       </div>
-      <div className="flex flex-col gap-4 mt-[79px] px-4 w-full">
+      <div className="flex flex-col gap-4 mt-[60px] px-4 w-full">
         {labels.map((label, index) => (
           <div
             key={index}

@@ -37,11 +37,11 @@ This is an automatic email, no reply is needed.
       `
     },
     ca: {
-      subject: "Codi de verificació – Canyelles i la història del meteorit",
+      subject: "Codi de verificació – Els camins secrets de la Pobla de Mafumet",
       text: `
 Hola ${name},
 
-Gràcies per registrar-te a Canyelles i la història del meteorit.
+Gràcies per registrar-te a Els camins secrets de la Pobla de Mafumet.
 
 El teu codi de verificació és: ${code}
 Aquest codi caduca en 15 minuts.

@@ -148,12 +148,12 @@ const Dashboard = () => {
           }}
         />
       )}
-      <div className="pb-10 gradient-bg text-lightblack h-[85vh]">
+      <div className="gradient-bg text-lightblack h-[95vh]">
         <div className="">
           <Image
             src={Logo}
             alt="Logo"
-            className="object-cover h-[300px] w-[430px] object-[50%_24%] bg-gradient-to-r from-[#fff6d8] to-[#ef948a]"
+            className="object-cover h-[300px] w-[500px] object-[50%_24%] bg-gradient-to-r from-[#fff6d8] to-[#ef948a]"
           />
         </div>
         <div className="flex justify-between mt-[33px] px-4 gap-4">
@@ -173,7 +173,7 @@ const Dashboard = () => {
           </Card>
           <Card
             onClick={() => {
-              setShowMorePopup(true);
+              router.push("/progres");
             }}
           >
             <Image
@@ -204,10 +204,10 @@ const Dashboard = () => {
             )}
           </Card>
         </div>
-        <div className="flex justify-between mt-[25px] px-6 gap-4">
+        <div className="flex justify-between mt-[25px] px-4 gap-4">
           <Card
             onClick={() => {
-              router.push("/progres");
+              setShowMorePopup(true);
             }}
           >
             <Image
@@ -221,21 +221,25 @@ const Dashboard = () => {
           </Card>
           <Card
             onClick={() => {
-              window.open("https://www.canyelles.cat", "_blank");
+              router.push("/faqs");
             }}
           >
-            <Image src={Faq} alt="FAQs Icon" className="w-[48px] h-[48px]" />
+            <Image
+              src={Direction}
+              alt="FAQs Icon"
+              className="w-[48px] h-[48px]"
+            />
             <h1 className="text-center w-full break-words px-1 leading-4 font-bold">
               {t("card5")}
             </h1>
           </Card>
           <Card
             onClick={() => {
-              router.push("/faqs");
+              window.open("https://www.poblamafumet.cat", "_blank");
             }}
           >
             <Image
-              src={Direction}
+              src={Faq}
               alt="Recommendations Icon"
               className="w-[48px] h-[48px]"
             />
