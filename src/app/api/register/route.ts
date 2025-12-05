@@ -20,8 +20,13 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Users collection not found" }, { status: 500 });
     }
 
-    // Check if user already exists
-    const existingUser = await usersCol.findOne({ email });
+    // Normalize email to lowercase for case-insensitive lookup and storage
+    const normalizedEmail = email.toLowerCase().trim();
+
+    // Check if user already exists (case-insensitive)
+    const existingUser = await usersCol.findOne({ 
+      email: { $regex: new RegExp(`^${normalizedEmail.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'i') }
+    });
     if (existingUser) {
       return NextResponse.json({ error: "User already exists" }, { status: 400 });
     }
@@ -34,7 +39,7 @@ export async function POST(req: Request) {
     const result = await usersCol.insertOne({
       firstName,
       lastName,
-      email,
+      email: normalizedEmail,
       password: hashedPassword,
       phone,
       origin,
@@ -49,7 +54,7 @@ export async function POST(req: Request) {
       updatedAt: new Date(),
     });
 
-    await sendVerificationEmail(email, verificationCode, firstName, currentLocale || 'ca');
+    await sendVerificationEmail(normalizedEmail, verificationCode, firstName, currentLocale || 'ca');
 
     return NextResponse.json({
       message: "User registered successfully. Please check your email for verification code.",

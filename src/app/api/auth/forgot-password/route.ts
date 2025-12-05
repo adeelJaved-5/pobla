@@ -23,8 +23,12 @@ export async function POST(req: Request) {
       );
     }
 
-    // Find user by email
-    const user = await usersCol.findOne({ email });
+    // Normalize email to lowercase for case-insensitive lookup
+    const normalizedEmail = email.toLowerCase().trim();
+    // Find user by email (case-insensitive)
+    const user = await usersCol.findOne({ 
+      email: { $regex: new RegExp(`^${normalizedEmail.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'i') }
+    });
     if (!user) {
       return NextResponse.json(
         { success: false, error: "User not found" },

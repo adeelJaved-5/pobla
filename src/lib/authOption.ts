@@ -38,7 +38,11 @@ export const authOptions: NextAuthOptions = {
         const usersCol = await getCollection("users");
         if (!usersCol) return null;
 
-        const user = await usersCol.findOne({ email: credentials.email });
+        // Normalize email to lowercase for case-insensitive lookup
+        const normalizedEmail = credentials.email.toLowerCase().trim();
+        const user = await usersCol.findOne({ 
+          email: { $regex: new RegExp(`^${normalizedEmail.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'i') }
+        });
         if (!user) return null;
 
         return {
@@ -75,7 +79,7 @@ export const authOptions: NextAuthOptions = {
             token.address = profile.addresses?.[0]?.formattedValue || "";
             token.firstName = profile.names?.[0]?.givenName || "";
             token.lastName = profile.names?.[0]?.familyName || "";
-            token.email = profile.emailAddresses?.[0]?.value || "";
+            token.email = (profile.emailAddresses?.[0]?.value || "").toLowerCase().trim();
           } catch (err) {
             console.error("Google People API error:", err);
           }
@@ -90,20 +94,24 @@ export const authOptions: NextAuthOptions = {
             token.sub = profile.id;
             token.firstName = profile.givenName || "";
             token.lastName = profile.surname || "";
-            token.email = profile.mail || profile.userPrincipalName || "";
+            token.email = (profile.mail || profile.userPrincipalName || "").toLowerCase().trim();
             token.phone = profile.mobilePhone || profile.businessPhones?.[0] || "";
             token.address = profile.officeLocation || "";
           } catch (err) {
             console.error("Microsoft Graph API error:", err);
           }
         }
-        dbUser = await usersCol?.findOne({ email: token.email });
+        // Normalize email for case-insensitive lookup
+        const normalizedEmail = (token.email || "").toLowerCase().trim();
+        dbUser = await usersCol?.findOne({ 
+          email: { $regex: new RegExp(`^${normalizedEmail.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'i') }
+        });
         token.phone = token.phone || dbUser?.phone || "";
         token.address = token.address || dbUser?.origin || "";
         try {
           if (!dbUser) {
             await usersCol?.insertOne({
-              email: token.email,
+              email: normalizedEmail,
               password: token.sub || "",
               firstName: token.firstName,
               lastName: token.lastName,
@@ -152,7 +160,11 @@ export const authOptions: NextAuthOptions = {
       const usersCol = await getCollection("users");
 
       if (session.user) {
-        const dbUser = await usersCol?.findOne({ email: session.user.email });
+        // Normalize email for case-insensitive lookup
+        const normalizedEmail = (session.user.email || "").toLowerCase().trim();
+        const dbUser = await usersCol?.findOne({ 
+          email: { $regex: new RegExp(`^${normalizedEmail.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'i') }
+        });
 
         if (dbUser) {
           (session.user as any).id = dbUser._id;

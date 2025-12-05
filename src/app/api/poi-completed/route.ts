@@ -19,8 +19,11 @@ export async function POST(req: Request) {
         const usersCol = await getCollection("users");
         if (!usersCol) return new Response(JSON.stringify({ message: "Users collection not found" }), { status: 500 });
 
-
-        const user = await usersCol.findOne({ email: session.user.email });
+        // Normalize email for case-insensitive lookup
+        const normalizedEmail = (session.user.email || "").toLowerCase().trim();
+        const user = await usersCol.findOne({ 
+          email: { $regex: new RegExp(`^${normalizedEmail.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'i') }
+        });
         if (!user) return new Response(JSON.stringify({ message: "User not found" }), { status: 404 });
 
         let newPOIsCompleted = poiCompleted;

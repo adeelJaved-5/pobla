@@ -20,7 +20,11 @@ export async function POST(req: Request) {
       );
     }
 
-    const user = await usersCol.findOne({ email });
+    // Normalize email to lowercase for case-insensitive lookup
+    const normalizedEmail = email.toLowerCase().trim();
+    const user = await usersCol.findOne({ 
+      email: { $regex: new RegExp(`^${normalizedEmail.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'i') }
+    });
     if (!user) {
       return NextResponse.json(
         { success: false, error: "Invalid email or password" },
