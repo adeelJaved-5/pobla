@@ -417,7 +417,7 @@ const Page = () => {
     return {
       id: safeId,
       position: { x: Math.cos(angle) * radius, y: height, z: Math.sin(angle) },
-      scale: Math.random() * 0.05 + 0.3,
+      scale: Math.random() * 0.3 + 1.2,
       rotation: {
         x: Math.random() * Math.PI,
         y: Math.random() * Math.PI,
@@ -750,7 +750,7 @@ const Page = () => {
           rotation-reader
           look-controls="reverseMouseDrag:true; touchEnabled: false;"
           cursor="fuse: false; rayOrigin: mouse;"
-          raycaster="objects: .floating-rock; showLine: false"
+          raycaster="objects: .floating-rock; showLine: false; far: 20; interval: 100"
         />
 
         {floatingRocks.map((rock) => (
