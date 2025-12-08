@@ -63,8 +63,7 @@ const Avatar = React.forwardRef((props: AvatarProps, forwardedRef: any) => {
         });
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [avatarRef]);
 
   return (
     <AEntity
@@ -74,11 +73,27 @@ const Avatar = React.forwardRef((props: AvatarProps, forwardedRef: any) => {
       scale={`${userScale} ${userScale} ${userScale}`}
     >
       <AEntity
-        light="type: ambient; color: #ffffff; intensity: 0.5"
+        light="type: ambient; color: #ffffff; intensity: 1.2"
       />
       <AEntity
-        light="type: directional; color: #ffffff; intensity: 4"
-        position="0 0 3"
+        light="type: directional; color: #ffffff; intensity: 1.2"
+        position="0 0 2"
+        rotation="0 0 0"
+      />
+      <AEntity
+        light="type: directional; color: #ffffff; intensity: 1.0"
+        position="1.5 1 2"
+        rotation="0 -30 0"
+      />
+      <AEntity
+        light="type: directional; color: #ffffff; intensity: 1.0"
+        position="-1.5 1 2"
+        rotation="0 30 0"
+      />
+      <AEntity
+        light="type: directional; color: #ffffff; intensity: 1.0"
+        position="0 1.5 2"
+        rotation="-20 0 0"
       />
       <AEntity
         gltf-model="url(/models/avatar5.glb)"
@@ -111,7 +126,6 @@ const Page = ({
   } | null>(null);
   const [isPlayingState, setIsPlayingState] = useState(false);
   const [showAudioPopup, setShowAudioPopup] = useState(false);
-  const [audioCompleted, setAudioCompleted] = useState(false);
   const [deviceOrientation, setDeviceOrientation] = useState({
     alpha: 0,
     beta: 0,
@@ -190,7 +204,6 @@ const Page = ({
         audioRef.current.preload = "auto";
         audioRef.current.onended = () => {
           stopAnimationAndAudio();
-          setAudioCompleted(true);
           setTimeout(() => handleBackFromAR(), 100);
         };
       }
@@ -370,9 +383,14 @@ const Page = ({
         if (!(window as any).AFRAME) {
           await loadScript("https://aframe.io/releases/1.3.0/aframe.min.js");
         }
-        await new Promise((resolve) => {
-          const check = () =>
-            (window as any).AFRAME ? resolve(true) : setTimeout(check, 50);
+        await new Promise<void>((resolve) => {
+          const check = (): void => {
+            if ((window as any).AFRAME) {
+              resolve();
+            } else {
+              setTimeout(check, 50);
+            }
+          };
           check();
         });
 
@@ -480,7 +498,7 @@ const Page = ({
         >
           <CustomButton
             onClick={placeAvatar}
-            className="px-6 py-3 bg-green-600 !w-[300px] text-white rounded-xl shadow-lg"
+            className="px-6 py-3 bg-green-600 w-[300px] text-white rounded-xl shadow-lg"
           >
             {t("place")}
           </CustomButton>

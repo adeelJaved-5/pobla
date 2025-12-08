@@ -166,10 +166,10 @@ function OptimizedCanvas({
             target: [0, 1, 0] as [number, number, number],
         },
         normal: {
-            min: 0.1,
-            max: 1.8,
-            cam: [0.5, 0.5, 1] as [number, number, number],
-            target: [0, 1, 0] as [number, number, number],
+            min: 0.8,
+            max: 3,
+            cam: [0.5, 0.5, 3.5] as [number, number, number],
+            target: [0, 0.8, 0] as [number, number, number],
         },
         large: {
             min: 0.05,

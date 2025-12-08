@@ -197,7 +197,7 @@ export default function CoinMap({ destination }: CoinMapProps) {
             });
           }
         }}
-        className="absolute bottom-10 right-4 text-white px-[11px] py-3 rounded-lg shadow-lg z-50 !w-[46px]"
+        className="absolute bottom-10 right-4 text-white px-[11px] py-3 rounded-lg shadow-lg z-50 !w-[51px]"
       >
         <TbFocusCentered size={25} />
       </CustomButton>

@@ -153,7 +153,7 @@ const Dashboard = () => {
           <Image
             src={Logo}
             alt="Logo"
-            className="object-cover h-[300px] w-[500px] object-[50%_24%] bg-gradient-to-r from-[#fff6d8] to-[#ef948a]"
+            className="object-cover h-[340px] w-[500px] object-[35%_24%] bg-gradient-to-r from-[#fff6d8] to-[#ef948a]"
           />
         </div>
         <div className="flex justify-between mt-[33px] px-4 gap-4">
@@ -177,8 +177,8 @@ const Dashboard = () => {
             }}
           >
             <Image
-              src={Profile}
-              alt="Profile Icon"
+              src={Axe}
+              alt="Know More Icon"
               className="w-[48px] h-[48px]"
             />
             <h1 className="text-center w-full break-words px-1 leading-4 font-bold">
@@ -211,8 +211,8 @@ const Dashboard = () => {
             }}
           >
             <Image
-              src={Axe}
-              alt="Know More Icon"
+              src={Profile}
+              alt="Profile Icon"
               className="w-[48px] h-[48px]"
             />
             <h1 className="text-center w-full break-words px-1 leading-4 font-bold">
