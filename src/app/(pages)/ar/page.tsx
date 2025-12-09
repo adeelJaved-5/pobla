@@ -100,6 +100,28 @@ const Page = () => {
   }, []);
 
   useEffect(() => {
+    if (user?.POIsCompleted >= 0 && !hasAutoPlayed.current) {
+      const handleFirstInteraction = () => {
+        if (backgroundAudioRef.current) {
+          backgroundAudioRef.current.play().catch(() => { });
+        }
+        if (explosionAudioRef.current) {
+          explosionAudioRef.current.play().catch(() => { });
+          explosionAudioRef.current.pause();
+          explosionAudioRef.current.currentTime = 0;
+        }
+        hasAutoPlayed.current = true;
+        window.removeEventListener("click", handleFirstInteraction);
+        window.removeEventListener("touchstart", handleFirstInteraction);
+      };
+      window.addEventListener("click", handleFirstInteraction, { once: true });
+      window.addEventListener("touchstart", handleFirstInteraction, {
+        once: true,
+      });
+    }
+  }, [user, locale]);
+
+  useEffect(() => {
     if (!onLoadPoints && user?.points) setOnLoadPoints(user.points);
   }, [user?.points]);
 
@@ -370,25 +392,32 @@ const Page = () => {
     };
   }, [scriptsLoaded, floatingRocks]); 
 
+  // useEffect(() => {
+  //   if (user?.POIsCompleted >= 0 && !hasAutoPlayed.current) {
+  //     const handleFirstInteraction = () => {
+  //       backgroundAudioRef.current?.play().catch(() => { });
+  //       if (explosionAudioRef.current) {
+  //         explosionAudioRef.current.play().catch(() => { });
+  //         explosionAudioRef.current.pause();
+  //         explosionAudioRef.current.currentTime = 0;
+  //       }
+  //       hasAutoPlayed.current = true;
+  //       window.removeEventListener("click", handleFirstInteraction);
+  //       window.removeEventListener("touchstart", handleFirstInteraction);
+  //     };
+  //     window.addEventListener("click", handleFirstInteraction, { once: true });
+  //     window.addEventListener("touchstart", handleFirstInteraction, {
+  //       once: true,
+  //     });
+  //   }
+  // }, [user, locale]);
+  
+
   useEffect(() => {
-    if (user?.POIsCompleted >= 0 && !hasAutoPlayed.current) {
-      const handleFirstInteraction = () => {
-        backgroundAudioRef.current?.play().catch(() => { });
-        if (explosionAudioRef.current) {
-          explosionAudioRef.current.play().catch(() => { });
-          explosionAudioRef.current.pause();
-          explosionAudioRef.current.currentTime = 0;
-        }
-        hasAutoPlayed.current = true;
-        window.removeEventListener("click", handleFirstInteraction);
-        window.removeEventListener("touchstart", handleFirstInteraction);
-      };
-      window.addEventListener("click", handleFirstInteraction, { once: true });
-      window.addEventListener("touchstart", handleFirstInteraction, {
-        once: true,
-      });
+    if (backgroundAudioRef.current) {
+      backgroundAudioRef.current.play().catch(() => {});
     }
-  }, [user, locale]);
+  }, []);
 
   if (!user) return <Loading />;
 
@@ -696,15 +725,16 @@ const Page = () => {
         }
       `}</style>
 
-      <audio
+      {/* <audio
         ref={backgroundAudioRef}
         src="/sounds/background-music.mp3"
         preload="auto"
         style={{ display: "none" }}
-      />
+      /> */}
+
       <audio
         ref={explosionAudioRef}
-        src="/sounds/explosion.mp3"
+        src="/sounds/coin-collect.mp3"
         preload="auto"
         style={{ display: "none" }}
       />

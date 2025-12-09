@@ -148,7 +148,7 @@ const Dashboard = () => {
           }}
         />
       )}
-      <div className="gradient-bg text-lightblack h-[95vh]">
+      <div className="gradient-bg text-lightblack pb-10">
         <div className="">
           <Image
             src={Logo}

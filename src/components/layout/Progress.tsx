@@ -73,14 +73,14 @@ const Progress = () => {
     if (user?.currentLevel === 2) return t2("row3");
     if (user?.currentLevel === 3) return t2("row2");
     if (user?.currentLevel === 4) return t2("row1");
-    return t2("row1");
+    return t2("row4");
   };
 
   const getLevelIcon = () => {
     if (user?.currentLevel === 1) return Level1;
     if (user?.currentLevel === 2) return Level2;
     if (user?.currentLevel === 3) return Level3;
-    if (user?.currentLevel === 4) return Level3;
+    if (user?.currentLevel === 4) return Level4;
     return Level1;
   };
 

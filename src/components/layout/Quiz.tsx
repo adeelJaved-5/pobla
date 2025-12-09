@@ -331,7 +331,7 @@ const Quiz = () => {
       <div className="flex flex-col justify-center px-5 h-[90vh] items-center">
         {findingImages[volcanoId - 1] && (
           <div
-            className="rounded-2xl h-[362px] w-[362px] mb-4 flex justify-center items-center"
+            className="rounded-2xl h-[362px] w-[362px] mb-4 flex justify-center items-center bg-blue"
             style={{
               backgroundImage: "url(/bg.svg)",
               backgroundSize: "cover",
