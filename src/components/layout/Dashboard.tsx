@@ -153,7 +153,7 @@ const Dashboard = () => {
           <Image
             src={Logo}
             alt="Logo"
-            className="object-cover h-[340px] w-[500px] object-[35%_24%] bg-gradient-to-r from-[#fff6d8] to-[#ef948a]"
+            className="object-cover h-[340px] w-[500px] object-[35%_24%] bg-gradient-to-r from-[#fff6d8] to-[#ef948a] "
           />
         </div>
         <div className="flex justify-between mt-[33px] px-4 gap-4">
