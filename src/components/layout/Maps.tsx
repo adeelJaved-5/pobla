@@ -17,6 +17,12 @@ const stop = [
   "fourth",
   "fifth",
   "sixth",
+  "seventh",
+  "eighth",
+  "ninth",
+  "tenth",
+  "eleventh",
+  "twelfth"
 ];
 
 const stopTitle = [
@@ -26,6 +32,12 @@ const stopTitle = [
   "fourth_title",
   "fifth_title",
   "sixth_title",
+  "seventh_title",
+  "eighth_title",
+  "ninth_title",
+  "tenth_title",
+  "eleventh_title",
+  "twelfth_title"
 ]
 
 const Maps = () => {
