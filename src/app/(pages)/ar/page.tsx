@@ -31,7 +31,6 @@ const Page = () => {
 
   const sceneRef = useRef<any>(null);
   const locale = useLocale();
-  const backgroundAudioRef = useRef<HTMLAudioElement>(null);
   const explosionAudioRef = useRef<HTMLAudioElement>(null);
   const eventListenersRef = useRef<
     Map<string, { click: (e: Event) => void; touchstart: (e: Event) => void }>
@@ -86,25 +85,10 @@ const Page = () => {
     })();
   }, []);
 
-  useEffect(() => {
-    if (hasInitialized.current) return;
-
-    const timer = setTimeout(() => {
-      if (backgroundAudioRef.current) {
-        backgroundAudioRef.current.loop = true;
-        backgroundAudioRef.current.volume = 0.08;
-        backgroundAudioRef.current.play().catch(() => { });
-      }
-    }, 5000);
-    return () => clearTimeout(timer);
-  }, []);
 
   useEffect(() => {
     if (user?.POIsCompleted >= 0 && !hasAutoPlayed.current) {
       const handleFirstInteraction = () => {
-        if (backgroundAudioRef.current) {
-          backgroundAudioRef.current.play().catch(() => { });
-        }
         if (explosionAudioRef.current) {
           explosionAudioRef.current.play().catch(() => { });
           explosionAudioRef.current.pause();
@@ -392,32 +376,6 @@ const Page = () => {
     };
   }, [scriptsLoaded, floatingRocks]); 
 
-  // useEffect(() => {
-  //   if (user?.POIsCompleted >= 0 && !hasAutoPlayed.current) {
-  //     const handleFirstInteraction = () => {
-  //       backgroundAudioRef.current?.play().catch(() => { });
-  //       if (explosionAudioRef.current) {
-  //         explosionAudioRef.current.play().catch(() => { });
-  //         explosionAudioRef.current.pause();
-  //         explosionAudioRef.current.currentTime = 0;
-  //       }
-  //       hasAutoPlayed.current = true;
-  //       window.removeEventListener("click", handleFirstInteraction);
-  //       window.removeEventListener("touchstart", handleFirstInteraction);
-  //     };
-  //     window.addEventListener("click", handleFirstInteraction, { once: true });
-  //     window.addEventListener("touchstart", handleFirstInteraction, {
-  //       once: true,
-  //     });
-  //   }
-  // }, [user, locale]);
-  
-
-  useEffect(() => {
-    if (backgroundAudioRef.current) {
-      backgroundAudioRef.current.play().catch(() => {});
-    }
-  }, []);
 
   if (!user) return <Loading />;
 
@@ -724,13 +682,6 @@ const Page = () => {
           z-index: 1002;
         }
       `}</style>
-
-      {/* <audio
-        ref={backgroundAudioRef}
-        src="/sounds/background-music.mp3"
-        preload="auto"
-        style={{ display: "none" }}
-      /> */}
 
       <audio
         ref={explosionAudioRef}
