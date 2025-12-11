@@ -57,7 +57,7 @@ const Amics = () => {
       model: `${HOST}/models/1. chariot.glb`,
       altKey: "finding1",
       zoom: "normal",
-      rotation: [0.3, Math.PI / 0.62, 0],
+      rotation: [0.3, Math.PI / 0.49, 0],
       position: [0, 0.7, 0],
     },
     {
