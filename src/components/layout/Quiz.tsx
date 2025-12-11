@@ -303,13 +303,13 @@ const Quiz = () => {
       <div className="flex flex-col justify-center px-5 h-[90vh] items-center">
         {findingImages[volcanoId - 1] && (
           <div
-            className="rounded-2xl h-[362px] w-[362px] mb-4 flex justify-center items-center bg-blue"
+            className="rounded-2xl h-[362px] w-[362px] mb-4 flex justify-center items-center gradient2-bg"
 
-            style={{
-              backgroundImage: "url(/bg.svg)",
-              backgroundSize: "cover",
-              backgroundColor: "bg-gradient-to-b from-[#123C62] to-[#257AC8]"
-            }}
+            // style={{
+            //   backgroundImage: "url(/bg.svg)",
+            //   backgroundSize: "cover",
+            //   backgroundColor: "bg-gradient-to-b from-[#123C62] to-[#257AC8]"
+            // }}
           >
             <img
               src={findingImages[volcanoId - 1].src}
@@ -331,11 +331,11 @@ const Quiz = () => {
       <div className="flex flex-col justify-center px-5 h-[90vh] items-center">
         {findingImages[volcanoId - 1] && (
           <div
-            className="rounded-2xl h-[362px] w-[362px] mb-4 flex justify-center items-center bg-blue"
-            style={{
-              backgroundImage: "url(/bg.svg)",
-              backgroundSize: "cover",
-            }}
+            className="rounded-2xl h-[362px] w-[362px] mb-4 flex justify-center items-center gradient2-bg"
+            // style={{
+            //   backgroundImage: "url(/bg.svg)",
+            //   backgroundSize: "cover",
+            // }}
           >
             <img
               src={findingImages[volcanoId - 1].src}

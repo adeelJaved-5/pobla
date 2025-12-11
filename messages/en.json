@@ -134,13 +134,13 @@
   },
   "Level": {
     "title1": "Hello, ",
-    "title2": " Era",
+    "title2": " ERA",
     "title3": "“Roman coins”",
-    "button": "Era",
-    "row1": "ADVANCED Era",
-    "row2": "EXPERT Era",
-    "row3": "APPRENTICE Era",
-    "row4": "NOVICE Era",
+    "button": "ERA",
+    "row1": "CONTEMPORARY AGE PERIOD",
+    "row2": "CHRISTIAN REPOPULATION PERIOD",
+    "row3": "SARACEN PERIOD",
+    "row4": "ROMAN EMPIRE PERIOD",
     "rowtitle": "Earn 1000 coins"
   },
   "StartQuiz": {
@@ -193,7 +193,7 @@
       "q7": "Is it safe to use AR while walking?",
       "a7": "Yes, but be aware of your surroundings while using the camera. Don't walk looking at your phone and always keep an eye on your environment.",
       "q8": "Can I take photos or videos with AR?",
-      "a8": "Yes! You can take screenshots and record videos with Roc and the different AR experiences and share them. It's a great way to remember and share your adventure."
+      "a8": "Yes! You can take screenshots and record videos with Mafu and the different AR experiences and share them. It's a great way to remember and share your adventure."
     },
     "game": {
       "q1": "What is the goal of the game?",

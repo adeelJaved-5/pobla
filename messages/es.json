@@ -134,13 +134,13 @@
   },
   "Level": {
     "title1": "Hola, ",
-    "title2": "Época ",
+    "title2": "ÉPOCA ",
     "title3": "“Monedas romanas”",
-    "button": "Época",
-    "row1": "Época AVANZADO",
-    "row2": "Época EXPERTO",
-    "row3": "Época APRENDIZ",
-    "row4": "Época PRINCIPIANTE",
+    "button": "ÉPOCA",
+    "row1": "ÉPOCA EDAD CONTEMPORÁNEA",
+    "row2": "ÉPOCA DE LA REPOBLACIÓN CRISTIANA",
+    "row3": "ÉPOCA DE LOS SARRACENOS",
+    "row4": "ÉPOCA DEL IMPERIO ROMANO",
     "rowtitle": "Gana 1000 coins"
   },
   "StartQuiz": {
@@ -193,7 +193,7 @@
       "q7": "¿Es seguro usar RA mientras camino?",
       "a7": "Sí, pero mantente atento a tu entorno mientras usas la cámara. No camines mirando tu teléfono y siempre presta atención a tu alrededor.",
       "q8": "¿Puedo tomar fotos o videos con RA?",
-      "a8": "¡Sí! Puedes tomar capturas de pantalla y grabar videos con Roc y las diferentes experiencias de RA y compartirlas. Es una excelente manera de recordar y compartir tu aventura."
+      "a8": "¡Sí! Puedes tomar capturas de pantalla y grabar videos con Mafu y las diferentes experiencias de RA y compartirlas. Es una excelente manera de recordar y compartir tu aventura."
     },
     "game": {
       "q1": "¿Cuál es el objetivo del juego?",

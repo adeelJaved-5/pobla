@@ -73,27 +73,27 @@ const Avatar = React.forwardRef((props: AvatarProps, forwardedRef: any) => {
       scale={`${userScale} ${userScale} ${userScale}`}
     >
       <AEntity
-        light="type: ambient; color: #ffffff; intensity: 1.2"
+        light="type: ambient; color: #ffffff; intensity: 0.8"
       />
       <AEntity
-        light="type: directional; color: #ffffff; intensity: 1.2"
-        position="0 0 2"
-        rotation="0 0 0"
-      />
-      <AEntity
-        light="type: directional; color: #ffffff; intensity: 1.0"
-        position="1.5 1 2"
-        rotation="0 -30 0"
-      />
-      <AEntity
-        light="type: directional; color: #ffffff; intensity: 1.0"
-        position="-1.5 1 2"
-        rotation="0 30 0"
-      />
-      <AEntity
-        light="type: directional; color: #ffffff; intensity: 1.0"
-        position="0 1.5 2"
+        light="type: directional; color: #ffffff; intensity: 0.8"
+        position="0 1 2"
         rotation="-20 0 0"
+      />
+      <AEntity
+        light="type: directional; color: #ffffff; intensity: 0.6"
+        position="2 1 0"
+        rotation="0 -90 0"
+      />
+      <AEntity
+        light="type: directional; color: #ffffff; intensity: 0.6"
+        position="-2 1 0"
+        rotation="0 90 0"
+      />
+      <AEntity
+        light="type: directional; color: #ffffff; intensity: 0.4"
+        position="0 1 -2"
+        rotation="0 180 0"
       />
       <AEntity
         gltf-model="url(/models/avatar5.glb)"
@@ -491,14 +491,14 @@ const Page = ({
 
       {!avatarPos && (
         <div
-          className={`fixed bottom-10 w-full flex justify-center ${
+          className={`fixed bottom-10 w-full flex justify-center mx-auto px-5 ${
             from == "intro" ? "left-0" : ""
           }`}
           style={{ zIndex: 2147483646 }}
         >
           <CustomButton
             onClick={placeAvatar}
-            className="px-6 py-3 bg-green-600 w-[300px] text-white rounded-xl shadow-lg"
+            className="bg-green-600 w-[200px] text-white shadow-lg"
           >
             {t("place")}
           </CustomButton>

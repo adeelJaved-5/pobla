@@ -26,6 +26,8 @@ interface Finding {
   model: string;
   altKey: string;
   zoom: "moreless" | "less" | "normal" | "large";
+  rotation?: number[];
+  position?: number[];
 }
 
 const Amics = () => {
@@ -55,72 +57,95 @@ const Amics = () => {
       model: `${HOST}/models/1. chariot.glb`,
       altKey: "finding1",
       zoom: "normal",
+      rotation: [0.3, Math.PI / 0.62, 0],
+      position: [0, 0.7, 0],
     },
     {
       img: Coin,
       model: `${HOST}/models/2. oil lamp.glb`,
       altKey: "finding2",
       zoom: "normal",
+      rotation: [0, Math.PI / 0.4, 0],
+      position: [0, 0.7, 0],
     },
     {
       img: Coin,
       model: `${HOST}/models/3. amphora.glb`,
       altKey: "finding3",
       zoom: "normal",
+      rotation: [0, Math.PI / 0.4, 0],
+      position: [0.01, 0.7, 0],
     },
     {
       img: Coin,
       model: `${HOST}/models/4. wheel noria.glb`,
       altKey: "finding4",
       zoom: "normal",
+      rotation: [0, Math.PI / 0.39, 0],
+      position: [0, 0.7, 0],
     },
     {
       img: Coin,
       model: `${HOST}/models/5. arabic carpet.glb`,
       altKey: "finding5",
       zoom: "normal",
+      rotation: [1.5, Math.PI / 0.67, 0],
+      position: [0, 0.7, 0],
     },
     {
       img: Coin,
       model: `${HOST}/models/6. arabic parchment.glb`,
       altKey: "finding6",
       zoom: "normal",
+      rotation: [0, Math.PI / 0.65, 0],
+      position: [0.01, 0.7, 0],
     },
     {
       img: Coin,
       model: `${HOST}/models/7. medieval sword.glb`,
       altKey: "finding7",
       zoom: "normal",
+      rotation: [0, Math.PI / 0.4, 0],
+      position: [0.02, 0.7, 0],
     },
     {
       img: Coin,
       model: `${HOST}/models/8. royal throne.glb`,
       altKey: "finding8",
       zoom: "normal",
+      rotation: [0, Math.PI / 0.65, 0],
+      position: [0.015, 0.7, 0],
     },
     {
       img: Coin,
       model: `${HOST}/models/9. butcher knive.glb`,
       altKey: "finding9",
       zoom: "normal",
+      position: [0, 0.7, 0],
     },
     {
       img: Coin,
       model: `${HOST}/models/10. water tower.glb`,
       altKey: "finding10",
       zoom: "normal",
+      rotation: [0, Math.PI / 0.9, 0],
+      position: [0.01, 0.7, 0],
     },
     {
       img: Coin,
       model: `${HOST}/models/11. old book.glb`,
       altKey: "finding11",
       zoom: "normal",
+      rotation: [0, Math.PI / 0.5, 0],
+      position: [0.04, 0.7, 0],
     },
     {
       img: Coin,
       model: `${HOST}/models/12. roman coins.glb`,
       altKey: "finding12",
       zoom: "normal",
+      rotation: [0, Math.PI / 0.8, 0],
+      position: [0.05, 0.7, 0],
     },
   ];
 
@@ -222,6 +247,16 @@ const Amics = () => {
 
       <ModelViewer
         modelPath={activeModel || ""}
+        rotation={
+          (findings.find((f) => f.model === activeModel)?.rotation || [
+            0, 0, 0,
+          ]) as [number, number, number]
+        }
+        position={
+          (findings.find((f) => f.model === activeModel)?.position || [
+            0, 0, 0,
+          ]) as [number, number, number]
+        }
         isOpen={!!activeModel}
         onClose={() => setActiveModel(null)}
         zoomMode={
