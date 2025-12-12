@@ -73,25 +73,25 @@ const Avatar = React.forwardRef((props: AvatarProps, forwardedRef: any) => {
       scale={`${userScale} ${userScale} ${userScale}`}
     >
       <AEntity
-        light="type: ambient; color: #ffffff; intensity: 1"
+        light="type: ambient; color: #ffffff; intensity: 0.9"
       />
       <AEntity
-        light="type: directional; color: #ffffff; intensity: 2"
+        light="type: directional; color: #ffffff; intensity: 1.0"
         position="0 1 2"
         rotation="-20 0 0"
       />
       <AEntity
-        light="type: directional; color: #ffffff; intensity: 2"
+        light="type: directional; color: #ffffff; intensity: 1.0"
         position="2 1 0"
         rotation="0 -90 0"
       />
       <AEntity
-        light="type: directional; color: #ffffff; intensity: 2"
+        light="type: directional; color: #ffffff; intensity: 1.0"
         position="-2 1 0"
         rotation="0 90 0"
       />
       <AEntity
-        light="type: directional; color: #ffffff; intensity: 2"
+        light="type: directional; color: #ffffff; intensity: 1"
         position="0 1 -2"
         rotation="0 180 0"
       />
