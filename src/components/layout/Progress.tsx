@@ -69,19 +69,19 @@ const Progress = () => {
   };
 
   const getLevelName = () => {
-    if (user?.currentLevel === 1) return t2("row4");
-    if (user?.currentLevel === 2) return t2("row3");
-    if (user?.currentLevel === 3) return t2("row2");
-    if (user?.currentLevel === 4) return t2("row1");
-    return t2("row4");
+    if (user?.currentLevel === 1) return t2("row1");
+    if (user?.currentLevel === 2) return t2("row2");
+    if (user?.currentLevel === 3) return t2("row3");
+    if (user?.currentLevel === 4) return t2("row4");
+    return t2("row1");
   };
 
   const getLevelIcon = () => {
-    if (user?.currentLevel === 1) return Level1;
-    if (user?.currentLevel === 2) return Level2;
-    if (user?.currentLevel === 3) return Level3;
-    if (user?.currentLevel === 4) return Level4;
-    return Level1;
+    if (user?.currentLevel === 1) return Level4;
+    if (user?.currentLevel === 2) return Level3;
+    if (user?.currentLevel === 3) return Level2;
+    if (user?.currentLevel === 4) return Level1;
+    return Level4;
   };
 
   const handleResetProgress = async () => {
@@ -115,9 +115,7 @@ const Progress = () => {
         <Image src={getLevelIcon()} alt="Level Icon" width={96} height={96} />
       </div>
 
-      <h1 className="text-xl font-bold text-nlue mt-[2px]">
-        {getLevelName()}
-      </h1>
+      <h1 className="text-xl font-bold text-nlue mt-[2px]">{getLevelName()}</h1>
 
       <h1 className="text-2xl font-bold text-lightgreen mt-3">
         {user?.points.toString()} {t("title3")}
@@ -126,13 +124,21 @@ const Progress = () => {
       <div className="mt-[30px] flex w-full justify-center">
         <CustomButton
           onClick={() => setActiveTab("progress")}
-          className={`rounded-none w-full border-none bg-none text-lightblack ${activeTab === "progress" ? "gradient-bg text-lightskin" : "bg-[#F5F2F8]"} `}
+          className={`rounded-none w-full border-none bg-none text-lightblack ${
+            activeTab === "progress"
+              ? "gradient-bg text-lightskin"
+              : "bg-[#F5F2F8]"
+          } `}
         >
           {t("button1")}
         </CustomButton>
         <CustomButton
           onClick={() => setActiveTab("nivell")}
-          className={`rounded-none w-full border-none bg-none text-lightblack ${activeTab === "nivell" ? "gradient-bg text-lightskin" : "bg-[#F5F2F8]"} `}
+          className={`rounded-none w-full border-none bg-none text-lightblack ${
+            activeTab === "nivell"
+              ? "gradient-bg text-lightskin"
+              : "bg-[#F5F2F8]"
+          } `}
         >
           {t2("button")}
         </CustomButton>
@@ -179,21 +185,26 @@ const Progress = () => {
           </div>
         </div>
       ) : (
-        <div className="w-full flex flex-col bg-white min-h-[46vh]">
-
-          <div className={`flex items-center justify-between border-b py-3 px-6 ${shouldShowOpacity(4) ? "" : "opacity-50"}`}>
+        <div className="w-full flex flex-col bg-white min-h-">
+          <div
+            className={`flex items-center justify-between border-b py-3 px-6 mt-7 ${
+              shouldShowOpacity(1) ? "" : "opacity-50"
+            }`}
+          >
             <div className="flex items-center gap-4">
               <Image src={Level4} alt="Volcano" width={72} />
               <div>
-                <h2 className="text-lightblack text-[24px] font-bold">{t2("row1")}</h2>
+                <h2 className="text-lightblack text-[24px] font-bold">
+                  {t2("row1")}
+                </h2>
               </div>
             </div>
-            {getLevelCompleted(4) && <Image src={CheckIcon} alt="Completed" />}
+            {getLevelCompleted(1) && <Image src={CheckIcon} alt="Completed" />}
           </div>
 
           <div
             className={`flex items-center justify-between border-b py-3 px-6 ${
-              shouldShowOpacity(3) ? "" : "opacity-50"
+              shouldShowOpacity(2) ? "" : "opacity-50"
             }`}
           >
             <div className="flex items-center gap-4">
@@ -204,12 +215,12 @@ const Progress = () => {
                 </h2>
               </div>
             </div>
-            {getLevelCompleted(3) && <Image src={CheckIcon} alt="Completed" />}
+            {getLevelCompleted(2) && <Image src={CheckIcon} alt="Completed" />}
           </div>
 
           <div
             className={`flex items-center justify-between border-b py-3 px-6 ${
-              shouldShowOpacity(2) ? "" : "opacity-50"
+              shouldShowOpacity(3) ? "" : "opacity-50"
             }`}
           >
             <div className="flex items-center gap-4">
@@ -220,12 +231,12 @@ const Progress = () => {
                 </h2>
               </div>
             </div>
-            {getLevelCompleted(2) && <Image src={CheckIcon} alt="Completed" />}
+            {getLevelCompleted(3) && <Image src={CheckIcon} alt="Completed" />}
           </div>
 
           <div
             className={`flex items-center justify-between border-b py-3 px-6 ${
-              shouldShowOpacity(1) ? "" : "opacity-50"
+              shouldShowOpacity(4) ? "" : "opacity-50"
             }`}
           >
             <div className="flex items-center gap-4">
@@ -236,7 +247,7 @@ const Progress = () => {
                 </h2>
               </div>
             </div>
-            {getLevelCompleted(1) && <Image src={CheckIcon} alt="Completed" />}
+            {getLevelCompleted(4) && <Image src={CheckIcon} alt="Completed" />}
           </div>
         </div>
       )}

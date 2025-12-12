@@ -137,10 +137,10 @@
     "title2": " ERA",
     "title3": "“Roman coins”",
     "button": "ERA",
-    "row1": "CONTEMPORARY AGE PERIOD",
-    "row2": "CHRISTIAN REPOPULATION PERIOD",
-    "row3": "SARACEN PERIOD",
-    "row4": "ROMAN EMPIRE PERIOD",
+    "row1": "ROMAN EMPIRE",
+    "row2": "SARACEN",
+    "row3": "CHRISTIAN REPOPULATION",
+    "row4": "CONTEMPORARY AGE",
     "rowtitle": "Earn 1000 coins"
   },
   "StartQuiz": {
