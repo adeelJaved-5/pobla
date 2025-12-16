@@ -139,10 +139,10 @@
     "title2": "ÈPOCA",
     "title3": "Monedes romanes",
     "button": "ÈPOCA",
-    "row1": "IMPERI ROMÀ",
-    "row2": "ELS SARRAÏNS",
-    "row3": "REPOBLACIÓ CRISTIANA",
-    "row4": "EDAT CONTEMPORÀNIA",
+    "row1": "EDAT CONTEMPORÀNIA",
+    "row2": "REPOBLACIÓ CRISTIANA",
+    "row3": "ELS SARRAÏNS",
+    "row4": "IMPERI ROMÀ",
     "rowtitle": "Guanya 1000 coins"
   },
   "StartQuiz": {
@@ -195,7 +195,7 @@
       "q7": "És segur utilitzar la realitat augmentada mentre camino?",
       "a7": "Sí, però cal que estiguis atent a l'entorn físic mentre uses la càmera. No caminis mirant el mòbil i mantén sempre la vista als voltants.",
       "q8": "Puc fer fotos o vídeos amb l'AR?",
-      "a8": "Sí! Pots fer fotos (captura de pantalla) i enregistrar vídeos amb en Mafu i les diferents experiències AR i compartir-ho. És una bona manera de recordar i difondre la teva aventura."
+      "a8": "Sí! Pots fer fotos (captura de pantalla) i enregistrar vídeos amb en la Mafu i les diferents experiències AR i compartir-ho. És una bona manera de recordar i difondre la teva aventura."
     },
     "game": {
       "q1": "Quin és l'objectiu del joc?",

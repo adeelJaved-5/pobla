@@ -47,7 +47,7 @@ const robotoSlab = Roboto_Slab({
 export const metadata: Metadata = {
   // title: "Canyelles i la història del meteorit",
   title: "LA POBLA DE MAFUMET",
-  description: "Canyelles i la història del meteorit és un joc amb realitat augmentada que segueix un itinerari geolocalitzat per Canyelles amb un total de 6 parades conduïdes per un avatar, en Roc, un fragment del meteorit que va caure a Canyelles fa gairebé dos-cents anys. En Roc serà qui us acompanyi en tot el recorregut, explicant històries i anècdotes de Canyelles i la seva gent. A cada parada, hi ha una petita audiodescripció d'en Roc, un repte interactiu amb AR i un qüestionari. L’objectiu és completar l'itinerari i aconseguir les pedres precioses de Canyelles.",
+  description: "Els camins secrets de la Pobla de Mafumet és un joc que té com a objectiu acompanyar la Mafu al llarg de dotze punts geolocalitzats, on explicarà històries relacionades amb els diferents llocs. Cal recollir monedes romanes i aconseguir troballes per avançar.",
   icons: {
     icon: "/icon.png",
     shortcut: "/icon.png",

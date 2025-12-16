@@ -15,6 +15,7 @@ import React, {
   ReactNode,
   memo,
   useMemo,
+  useRef,
 } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three-stdlib";
@@ -129,7 +130,7 @@ function SafeModel({
       }
     };
   }, [modelPath]);
-
+  
 
   if (error) {
     return (
@@ -155,6 +156,7 @@ function OptimizedCanvas({
   enableRotate = true,
   showFloor = true,
   zoomMode = "normal",
+  isOpen,
 }: {
   modelPath: string;
   rotation?: [number, number, number];
@@ -165,6 +167,7 @@ function OptimizedCanvas({
   enableRotate?: boolean;
   showFloor?: boolean;
   zoomMode?: "moreless" | "less" | "normal" | "large";
+  isOpen: boolean;
 }) {
   const zoomPresets = {
     moreless: {
@@ -205,6 +208,30 @@ function OptimizedCanvas({
     []
   );
 
+  const [autoRotate, setAutoRotate] = useState(true);
+  const controlsRef = useRef<any>(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      setAutoRotate(true);
+    }
+  }, [isOpen]);
+
+  const handleStart = () => {
+    setAutoRotate(false);
+  };
+  useEffect(() => {
+    const currentControls = controlsRef.current;
+    if (currentControls) {
+      currentControls.addEventListener("start", handleStart);
+    }
+    return () => {
+      if (currentControls) {
+        currentControls.removeEventListener("start", handleStart);
+      }
+    };
+  }, []);
+
   return (
     <Canvas
       camera={cameraConfig}
@@ -228,6 +255,9 @@ function OptimizedCanvas({
       )}
       <Environment preset={environment as any} />
       <OrbitControls
+        ref={controlsRef}
+        autoRotate={autoRotate}
+        autoRotateSpeed={1.0}
         target={target}
         enablePan={true}
         minPolarAngle={Math.PI / 3.5}
@@ -236,6 +266,7 @@ function OptimizedCanvas({
         enableRotate={enableRotate}
         minDistance={min}
         maxDistance={max}
+        onStart={() => setAutoRotate(false)}
       />
     </Canvas>
   );
@@ -294,12 +325,12 @@ function ModelViewerComponent({
             enableRotate={enableRotate}
             showFloor={showFloor}
             zoomMode={zoomMode}
+            isOpen={isOpen}
           />
         </Suspense>
       </div>
     </div>
   );
 }
-
 
 export default memo(ModelViewerComponent);

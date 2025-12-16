@@ -137,10 +137,10 @@
     "title2": "ÉPOCA ",
     "title3": "“Monedas romanas”",
     "button": "ÉPOCA",
-    "row1": "DEL IMPERIO ROMANO",
-    "row2": "DE LOS SARRACENOS",
-    "row3": "DE LA REPOBLACIÓN CRISTIANA",
-    "row4": "EDAD CONTEMPORÁNEA",
+    "row1": "EDAD CONTEMPORÁNEA",
+    "row2": "DE LA REPOBLACIÓN CRISTIANA",
+    "row3": "DE LOS SARRACENOS",
+    "row4": "DEL IMPERIO ROMANO",
     "rowtitle": "Gana 1000 coins"
   },
   "StartQuiz": {
@@ -179,9 +179,9 @@
     "button3": "MAPA FAQ",
     "ar": {
       "q1": "¿Qué es la realidad aumentada (AR) y cómo la usamos aquí?",
-      "a1": "La realidad aumentada es una tecnología que permite ver elementos digitales —como personajes, objetos o escenas— superpuestos en el entorno real a través de la cámara de tu móvil. En este juego, se utiliza para ver a Mafu, recoger monedas romanas y visualizar las “troballes”.",
+      "a1": "La realidad aumentada es una tecnología que permite ver elementos digitales —como personajes, objetos o escenas— superpuestos en el entorno real a través de la cámara de tu móvil. En este juego, se utiliza para ver a la Mafu, recoger monedas romanas y visualizar las “troballes”.",
       "q2": "¿Se pueden hacer fotos o vídeos con la AR?",
-      "a2": "Sí. Puedes hacer fotos (captura de pantalla) y grabar vídeos con Mafu y con las distintas experiencias de AR, y compartirlos. Es una buena manera de recordar y difundir tu aventura.",
+      "a2": "Sí. Puedes hacer fotos (captura de pantalla) y grabar vídeos con la Mafu y con las distintas experiencias de AR, y compartirlos. Es una buena manera de recordar y difundir tu aventura.",
       "q3": "¿Necesito descargar alguna aplicación?",
       "a3": "No. Esta es una aplicación web: solo necesitas acceder al enlace a través de tu navegador (Chrome, Safari...). No es necesario descargar nada.",
       "q4": "¿Es mi teléfono compatible con RA?",
@@ -193,15 +193,15 @@
       "q7": "¿Es seguro usar RA mientras camino?",
       "a7": "Sí, pero mantente atento a tu entorno mientras usas la cámara. No camines mirando tu teléfono y siempre presta atención a tu alrededor.",
       "q8": "¿Puedo tomar fotos o videos con RA?",
-      "a8": "¡Sí! Puedes tomar capturas de pantalla y grabar videos con Mafu y las diferentes experiencias de RA y compartirlas. Es una excelente manera de recordar y compartir tu aventura."
+      "a8": "¡Sí! Puedes tomar capturas de pantalla y grabar videos con la Mafu y las diferentes experiencias de RA y compartirlas. Es una excelente manera de recordar y compartir tu aventura."
     },
     "game": {
       "q1": "¿Cuál es el objetivo del juego?",
-      "a1": "El objetivo es acompañar a Mafu a lo largo de doce puntos geolocalizados, donde os explicará historias relacionadas con cada lugar. Tendréis que recoger monedas romanas y conseguir troballes.",
+      "a1": "El objetivo es acompañar a la Mafu a lo largo de doce puntos geolocalizados, donde os explicará historias relacionadas con cada lugar. Tendréis que recoger monedas romanas y conseguir troballes.",
       "q2": "¿Qué diferencia hay entre las monedas romanas y las troballes?",
       "a2": "Las monedas romanas funcionan como sistema de puntuación dentro del juego. En cada punto hay un reto de realidad aumentada que consiste en recogerlas. En total hay 252, el mismo número de monedas romanas encontradas en La Pobla de Mafumet hace casi dos siglos. Las troballes, en cambio, son premios que se obtienen al superar los retos de realidad aumentada y responder correctamente el cuestionario de cada punto.",
       "q3": "¿Cómo se pueden conseguir las monedas romanas y las troballes?",
-      "a3": "Hay que llegar físicamente a los puntos geolocalizados que aparecen en el mapa. Allí, Mafu contará una historia y propondrá un reto interactivo y una pregunta. Si se superan, se obtendrán monedas romanas y una troballa relacionada con ese punto.",
+      "a3": "Hay que llegar físicamente a los puntos geolocalizados que aparecen en el mapa. Allí, la Mafu contará una historia y propondrá un reto interactivo y una pregunta. Si se superan, se obtendrán monedas romanas y una troballa relacionada con ese punto.",
       "q4": "¿Qué ocurre si no supero un reto o una pregunta?",
       "a4": "Los retos interactivos se completan recogiendo un número determinado de monedas romanas en AR. El reto no finalizará hasta conseguirlas todas. Normalmente son entre seis y siete. Si no se acierta una pregunta, el sistema pedirá volver a intentarlo.",
       "q5": "¿Es necesario registrarse para jugar?",
