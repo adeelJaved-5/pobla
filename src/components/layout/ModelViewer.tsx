@@ -260,8 +260,8 @@ function OptimizedCanvas({
         autoRotateSpeed={1.0}
         target={target}
         enablePan={true}
-        minPolarAngle={Math.PI / 3.5}
-        maxPolarAngle={Math.PI / 0.8}
+        minPolarAngle={Math.PI / 2.5}
+        maxPolarAngle={Math.PI / 1.6}
         enableZoom={enableZoom}
         enableRotate={enableRotate}
         minDistance={min}
