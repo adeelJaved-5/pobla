@@ -201,8 +201,7 @@ export default function CoinMap({ destination }: CoinMapProps) {
       >
         <TbFocusCentered size={25} />
       </CustomButton>
-      {/* {showEnterAR && ( */}
-      {true && (
+      {showEnterAR && (
         <div className="fixed inset-0 p-4 flex flex-col items-center justify-center bg-black/70 z-50">
           <div className="relative w-[95%] mx-auto max-w-md bg-[#F5F3ED] rounded-2xl shadow-2xl p-3">
             <div className="space-y-4 flex flex-col">
