@@ -236,7 +236,8 @@ function OptimizedCanvas({
     <Canvas
       camera={cameraConfig}
       gl={{ powerPreference: "high-performance" }}
-      dpr={[1, 2]}
+      // dpr={[1, 2]}
+      dpr={0.9}
     >
       <color attach="background" args={[backgroundColor]} />
       <ambientLight intensity={0.6} />

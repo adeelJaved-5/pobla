@@ -126,7 +126,7 @@
     "title3": "Monedes romanes",
     "button1": "PROGRÉS",
     "title4": "Recompenses del Festival",
-    "title5": "Coins",
+    "title5": "Monedes",
     "title6": "Completa",
     "button2": "Troballes",
     "button3": "Reinicia",
@@ -143,7 +143,7 @@
     "row2": "REPOBLACIÓ CRISTIANA",
     "row3": "ELS SARRAÏNS",
     "row4": "IMPERI ROMÀ",
-    "rowtitle": "Guanya 1000 coins"
+    "rowtitle": "Guanya 1000 monedes"
   },
   "StartQuiz": {
     "title": "GRAN MAGMA",
@@ -166,7 +166,7 @@
     "title": "CLASSIFICACIÓ",
     "tablehead1": "1. Nom",
     "tablehead2": "2. Cognoms",
-    "tablehead3": "3. Coins",
+    "tablehead3": "3. Monedes",
     "row1data1": "Craig",
     "row1data2": "Bloemsma",
     "row1data3": "1000",

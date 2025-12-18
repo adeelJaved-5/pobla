@@ -69,11 +69,12 @@ const Avatar = React.forwardRef((props: AvatarProps, forwardedRef: any) => {
     <AEntity
       ref={avatarRef}
       position={`${position.x} ${position.y} ${position.z}`}
-      rotation={`-10 ${deviceOrientation.alpha + userRotationY} 0`}
+      rotation={`-10 ${userRotationY} 0`}
+      // rotation={`-10 ${deviceOrientation.alpha + userRotationY} 0`}
       scale={`${userScale} ${userScale} ${userScale}`}
     >
       <AEntity
-        light="type: ambient; color: #ffffff; intensity: 0.9"
+        light="type: ambient; color: #ffffff; intensity: 1.0"
       />
       <AEntity
         light="type: directional; color: #ffffff; intensity: 1.0"

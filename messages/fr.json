@@ -124,7 +124,7 @@
     "title3": "“Monnaies romaines”",
     "button1": "PROGRÈS",
     "title4": "Récompenses du festival",
-    "title5": "Coins",
+    "title5": "Pièces",
     "title6": "Terminé",
     "button2": "Découvertes",
     "button3": "Redémarrage",
@@ -141,7 +141,7 @@
     "row2": "DU REPEUPLEMENT CHRÉTIEN",
     "row3": "DES SARRASINS",
     "row4": "DE L’EMPIRE ROMAIN",
-    "rowtitle": "Gagner 1000 coins"
+    "rowtitle": "Gagner 1000 pièces"
   },
   "StartQuiz": {
     "title": "GRAND MAGMA",
@@ -164,7 +164,7 @@
     "title": "CLASSEMENT",
     "tablehead1": "Prénom",
     "tablehead2": "Nom de famille",
-    "tablehead3": "Coins",
+    "tablehead3": "Pièces",
     "row1data1": "Craig",
     "row1data2": "Bloemsma",
     "row1data3": "1000",

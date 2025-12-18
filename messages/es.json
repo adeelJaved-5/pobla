@@ -124,7 +124,7 @@
     "title3": "“Monedas romanas”",
     "button1": "PROGRESO",
     "title4": "Recompensas del Festival",
-    "title5": "Coins",
+    "title5": "Monedas",
     "title6": "Completado",
     "button2": "“Hallazgos”",
     "button3": "Reanudar",
@@ -141,7 +141,7 @@
     "row2": "DE LA REPOBLACIÓN CRISTIANA",
     "row3": "DE LOS SARRACENOS",
     "row4": "DEL IMPERIO ROMANO",
-    "rowtitle": "Gana 1000 coins"
+    "rowtitle": "Gana 1000 monedas"
   },
   "StartQuiz": {
     "title": "GRAN MAGMA",
@@ -164,7 +164,7 @@
     "title": "CLASIFICACIÓN",
     "tablehead1": "1. Nombre",
     "tablehead2": "2. Apellidos",
-    "tablehead3": "3. Coins",
+    "tablehead3": "3. Monedas",
     "row1data1": "Craig",
     "row1data2": "Bloemsma",
     "row1data3": "1000",
