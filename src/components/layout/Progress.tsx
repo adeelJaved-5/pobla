@@ -69,19 +69,19 @@ const Progress = () => {
   };
 
   const getLevelName = () => {
-    if (user?.currentLevel === 1) return t2("row1");
-    if (user?.currentLevel === 2) return t2("row2");
-    if (user?.currentLevel === 3) return t2("row3");
-    if (user?.currentLevel === 4) return t2("row4");
-    return t2("row1");
+    if (user?.currentLevel === 1) return t2("row4");
+    if (user?.currentLevel === 2) return t2("row3");
+    if (user?.currentLevel === 3) return t2("row2");
+    if (user?.currentLevel === 4) return t2("row1");
+    return t2("row4");
   };
 
   const getLevelIcon = () => {
-    if (user?.currentLevel === 1) return Level4;
-    if (user?.currentLevel === 2) return Level3;
-    if (user?.currentLevel === 3) return Level2;
-    if (user?.currentLevel === 4) return Level1;
-    return Level4;
+    if (user?.currentLevel === 1) return Level1;
+    if (user?.currentLevel === 2) return Level2;
+    if (user?.currentLevel === 3) return Level3;
+    if (user?.currentLevel === 4) return Level4;
+    return Level1;
   };
 
   const handleResetProgress = async () => {
@@ -188,34 +188,18 @@ const Progress = () => {
         <div className="w-full flex flex-col bg-white min-h-">
           <div
             className={`flex items-center justify-between border-b py-3 px-6 mt-7 ${
-              shouldShowOpacity(1) ? "" : "opacity-50"
+              shouldShowOpacity(4) ? "" : "opacity-50"
             }`}
           >
             <div className="flex items-center gap-4">
-              <Image src={Level4} alt="Volcano" width={72} />
+              <Image src={Level4} alt="Contemporary Age" width={72} />
               <div>
                 <h2 className="text-lightblack text-[24px] font-bold">
                   {t2("row1")}
                 </h2>
               </div>
             </div>
-            {getLevelCompleted(1) && <Image src={CheckIcon} alt="Completed" />}
-          </div>
-
-          <div
-            className={`flex items-center justify-between border-b py-3 px-6 ${
-              shouldShowOpacity(2) ? "" : "opacity-50"
-            }`}
-          >
-            <div className="flex items-center gap-4">
-              <Image src={Level3} alt="Volcano" width={72} />
-              <div>
-                <h2 className="text-darkblue text-[24px] font-bold">
-                  {t2("row2")}
-                </h2>
-              </div>
-            </div>
-            {getLevelCompleted(2) && <Image src={CheckIcon} alt="Completed" />}
+            {getLevelCompleted(4) && <Image src={CheckIcon} alt="Completed" />}
           </div>
 
           <div
@@ -224,10 +208,10 @@ const Progress = () => {
             }`}
           >
             <div className="flex items-center gap-4">
-              <Image src={Level2} alt="Stone" width={72} />
+              <Image src={Level3} alt="Christian Repopulation" width={72} />
               <div>
                 <h2 className="text-darkblue text-[24px] font-bold">
-                  {t2("row3")}
+                  {t2("row2")}
                 </h2>
               </div>
             </div>
@@ -236,18 +220,34 @@ const Progress = () => {
 
           <div
             className={`flex items-center justify-between border-b py-3 px-6 ${
-              shouldShowOpacity(4) ? "" : "opacity-50"
+              shouldShowOpacity(2) ? "" : "opacity-50"
             }`}
           >
             <div className="flex items-center gap-4">
-              <Image src={Level1} alt="Magma" width={72} />
+              <Image src={Level2} alt="Saracens" width={72} />
+              <div>
+                <h2 className="text-darkblue text-[24px] font-bold">
+                  {t2("row3")}
+                </h2>
+              </div>
+            </div>
+            {getLevelCompleted(2) && <Image src={CheckIcon} alt="Completed" />}
+          </div>
+
+          <div
+            className={`flex items-center justify-between border-b py-3 px-6 ${
+              shouldShowOpacity(1) ? "" : "opacity-50"
+            }`}
+          >
+            <div className="flex items-center gap-4">
+              <Image src={Level1} alt="Roman Empire" width={72} />
               <div>
                 <h2 className="text-darkblue text-[24px] font-bold">
                   {t2("row4")}
                 </h2>
               </div>
             </div>
-            {getLevelCompleted(4) && <Image src={CheckIcon} alt="Completed" />}
+            {getLevelCompleted(1) && <Image src={CheckIcon} alt="Completed" />}
           </div>
         </div>
       )}
