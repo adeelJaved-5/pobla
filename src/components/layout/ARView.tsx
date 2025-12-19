@@ -10,6 +10,7 @@ const ACamera = (props: any) => React.createElement("a-camera", props);
 const AEntity = (props: any) => React.createElement("a-entity", props);
 const ACircle = (props: any) => React.createElement("a-circle", props);
 const ARing = (props: any) => React.createElement("a-ring", props);
+const ALight = (props: any) => React.createElement("a-light", props);
 
 const Marker = React.forwardRef((_, ref: any) => (
   <AEntity ref={ref} position="0 -0.9 -2">
@@ -28,7 +29,6 @@ Marker.displayName = "Marker";
 interface AvatarProps {
   position: { x: number; y: number; z: number };
   isPlaying: boolean;
-  deviceOrientation: { alpha: number; beta: number; gamma: number };
   userRotationY?: number;
   userScale?: number;
 }
@@ -39,7 +39,6 @@ const Avatar = React.forwardRef((props: AvatarProps, forwardedRef: any) => {
   const {
     position,
     isPlaying,
-    deviceOrientation,
     userRotationY = 0,
     userScale = 1.2,
   } = props;
@@ -49,17 +48,38 @@ const Avatar = React.forwardRef((props: AvatarProps, forwardedRef: any) => {
       const entity = avatarRef.current;
       const mesh = entity.getObject3D("mesh");
 
-      const disableFrustumCulling = (m: any) => {
+      const setupMaterials = (m: any) => {
         m.traverse((obj: any) => {
           obj.frustumCulled = false;
+          
+          if (obj.isMesh && obj.material) {
+            const materials = Array.isArray(obj.material) ? obj.material : [obj.material];
+            materials.forEach((mat: any) => {
+              if (mat) {
+                if (mat.isMeshBasicMaterial) {
+                  const THREE = (window as any).THREE;
+                  if (THREE) {
+                    const newMat = new THREE.MeshStandardMaterial();
+                    newMat.map = mat.map;
+                    newMat.color = mat.color;
+                    obj.material = newMat;
+                  }
+                }
+                if (mat.isMeshStandardMaterial || mat.isMeshPhysicalMaterial) {
+                  mat.envMapIntensity = 2.0;
+                  mat.needsUpdate = true;
+                }
+              }
+            });
+          }
         });
       };
 
       if (mesh) {
-        disableFrustumCulling(mesh);
+        setupMaterials(mesh);
       } else {
         entity.addEventListener("model-loaded", (evt: any) => {
-          disableFrustumCulling(evt.detail.model);
+          setupMaterials(evt.detail.model);
         });
       }
     }
@@ -70,32 +90,8 @@ const Avatar = React.forwardRef((props: AvatarProps, forwardedRef: any) => {
       ref={avatarRef}
       position={`${position.x} ${position.y} ${position.z}`}
       rotation={`-10 ${userRotationY} 0`}
-      // rotation={`-10 ${deviceOrientation.alpha + userRotationY} 0`}
       scale={`${userScale} ${userScale} ${userScale}`}
     >
-      {/* <AEntity
-        light="type: ambient; color: #ffffff; intensity: 1.0"
-      />
-      <AEntity
-        light="type: directional; color: #ffffff; intensity: 1.0"
-        position="0 1 2"
-        rotation="-20 0 0"
-      />
-      <AEntity
-        light="type: directional; color: #ffffff; intensity: 1.0"
-        position="2 1 0"
-        rotation="0 -90 0"
-      />
-      <AEntity
-        light="type: directional; color: #ffffff; intensity: 1.0"
-        position="-2 1 0"
-        rotation="0 90 0"
-      />
-      <AEntity
-        light="type: directional; color: #ffffff; intensity: 1"
-        position="0 1 -2"
-        rotation="0 180 0"
-      /> */}
       <AEntity
         gltf-model="url(/models/avatar5.glb)"
         animation-mixer={
@@ -211,8 +207,7 @@ const Page = ({
       await audioRef.current.play();
       isPlayingRef.current = true;
       setIsPlayingState(true);
-    } catch (err) {
-      console.log("Playback failed:", err);
+    } catch {
       setShowAudioPopup(true);
     }
   };
@@ -322,7 +317,6 @@ const Page = ({
     }
 
     const scriptClass = "poi-page-script";
-    const addedScripts: HTMLScriptElement[] = [];
 
     const loadScript = (src: string) =>
       new Promise<void>((resolve, reject) => {
@@ -344,7 +338,6 @@ const Page = ({
         };
         s.onerror = () => reject();
         document.head.appendChild(s);
-        addedScripts.push(s);
       });
 
     const setupDracoLoader = () => {
@@ -426,6 +419,84 @@ const Page = ({
     loadAll();
   }, [permissionGranted, linkLoad]);
 
+  useEffect(() => {
+    if (!scriptsLoaded || !(window as any).AFRAME || !(window as any).THREE) return;
+    
+    const scene = document.querySelector("a-scene");
+    if (!scene) return;
+
+    const setupEnvironment = () => {
+      const sceneEl = scene as any;
+      const THREE = (window as any).THREE;
+      
+      if (sceneEl.hasLoaded && sceneEl.renderer && sceneEl.object3D) {
+        const renderer = sceneEl.renderer;
+        const scene3D = sceneEl.object3D;
+        
+        renderer.toneMapping = THREE.LinearToneMapping;
+        renderer.toneMappingExposure = 1.0;
+        
+        if (sceneEl.components && sceneEl.components.environment) {
+          try {
+            sceneEl.setAttribute("environment", 
+              "preset: venice-sunset; " +
+              "toneMapping: linear; " +
+              "exposure: 0; " +
+              "punctualLights: true; " +
+              "ambientIntensity: 0; " +
+              "ambientColor: #ffffff; " +
+              "directIntensity: 2.5; " +
+              "directColor: #ffffff"
+            );
+          } catch {
+            try {
+              sceneEl.setAttribute("environment", {
+                preset: "venice-sunset",
+                toneMapping: "linear",
+                exposure: 0,
+                punctualLights: true,
+                ambientIntensity: 0,
+                ambientColor: "#ffffff",
+                directIntensity: 2.5,
+                directColor: "#ffffff"
+              });
+            } catch {
+              // Environment component update failed, using lights only
+            }
+          }
+        }
+        
+        const updateMaterials = () => {
+          scene3D.traverse((object: any) => {
+            if (object.isMesh && object.material) {
+              const materials = Array.isArray(object.material) ? object.material : [object.material];
+              materials.forEach((material: any) => {
+                if (material && (material.isMeshStandardMaterial || material.isMeshPhysicalMaterial)) {
+                  if (scene3D.environment) {
+                    material.envMap = scene3D.environment;
+                    material.envMapIntensity = 1.0;
+                  }
+                  material.needsUpdate = true;
+                }
+              });
+            }
+          });
+        };
+        
+        updateMaterials();
+        setTimeout(updateMaterials, 500);
+        setTimeout(updateMaterials, 1500);
+        setTimeout(updateMaterials, 3000);
+      } else {
+        sceneEl.addEventListener("loaded", setupEnvironment, { once: true });
+      }
+    };
+
+    const timer = setTimeout(setupEnvironment, 500);
+    
+    return () => clearTimeout(timer);
+  }, [scriptsLoaded]);
+
   if (!permissionGranted) {
     return (
       <div className="flex flex-col justify-center items-center h-screen bg-white w-full">
@@ -448,31 +519,44 @@ const Page = ({
         vr-mode-ui="enabled: false"
         embedded
         arjs="sourceType: webcam; videoTexture: true; facingMode: environment; debugUIEnabled: false"
-        renderer="alpha: true; logarithmicDepthBuffer: true; precision: mediump; toneMapping: ACESFilmic;"
-        environment="preset: neutral; toneMapping: linear; ambientIntensity: 1.4; directIntensity: 6;"
+        renderer="alpha: true; logarithmicDepthBuffer: true; precision: mediump; toneMapping: Linear;"
         style={{
           position: "fixed",
           top: 0,
           left: 0,
           width: "100%",
           height: "100%",
-          filter: "brightness(1.8)",
         }}
       >
         <ACamera position="0 0 0" look-controls="touchEnabled: false">
           {!avatarPos && <Marker ref={markerRef} />}
         </ACamera>
 
+        <ALight
+          type="directional"
+          intensity={2}
+          color="#ffffff"
+          position="10 10 10"
+        />
+        <ALight
+          type="ambient"
+          intensity={0.5}
+          color="#ffffff"
+        />
+
         {avatarPos && (
           <Avatar
             ref={avatarRef}
             position={avatarPos}
             isPlaying={isPlayingState}
-            deviceOrientation={deviceOrientation}
             userRotationY={userRotationY}
             userScale={userScale}
           />
         )}
+
+        <AEntity
+          environment="preset: venice-sunset; toneMapping: linear; exposure: 0; punctualLights: true; ambientIntensity: 0; ambientColor: #ffffff; directIntensity: 2; directColor: #ffffff;"
+        />
       </AScene>
 
       {avatarPos && (
@@ -494,7 +578,7 @@ const Page = ({
       {!avatarPos && (
         <div
           className={`fixed bottom-10 w-full flex justify-center mx-auto px-5 ${
-            from == "intro" ? "left-0" : ""
+            from === "intro" ? "left-0" : ""
           }`}
           style={{ zIndex: 2147483646 }}
         >
