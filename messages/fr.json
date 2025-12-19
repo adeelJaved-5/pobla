@@ -383,7 +383,8 @@
     "audioAllow": "Autoriser l'audio",
     "Cancel": "Annuler",
     "enableRotation": "Activer la rotation",
-    "try_again": "Réessayer"
+    "try_again": "Réessayer",
+    "coins": "Pièces"
   },
   "privacyPolicy": {
     "title": "Politique de Confidentialité",

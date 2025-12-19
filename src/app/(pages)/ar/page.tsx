@@ -706,7 +706,7 @@ const Page = () => {
           boxShadow: "0 4px 8px rgba(0,0,0,0.3)",
         }}
       >
-        {t("title5")}: {user?.points}
+        {t2("coins")}: {user?.points}
       </div>
 
       <AScene

@@ -73,7 +73,7 @@ const Avatar = React.forwardRef((props: AvatarProps, forwardedRef: any) => {
       // rotation={`-10 ${deviceOrientation.alpha + userRotationY} 0`}
       scale={`${userScale} ${userScale} ${userScale}`}
     >
-      <AEntity
+      {/* <AEntity
         light="type: ambient; color: #ffffff; intensity: 1.0"
       />
       <AEntity
@@ -95,7 +95,7 @@ const Avatar = React.forwardRef((props: AvatarProps, forwardedRef: any) => {
         light="type: directional; color: #ffffff; intensity: 1"
         position="0 1 -2"
         rotation="0 180 0"
-      />
+      /> */}
       <AEntity
         gltf-model="url(/models/avatar5.glb)"
         animation-mixer={
@@ -456,6 +456,7 @@ const Page = ({
           left: 0,
           width: "100%",
           height: "100%",
+          filter: "brightness(1.8)",
         }}
       >
         <ACamera position="0 0 0" look-controls="touchEnabled: false">
